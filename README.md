@@ -65,11 +65,11 @@ Via terminal type in these bash command once you are in the Speak Up root direct
 > node server.js 
 
 Go to your browser and type in `localhost:3000` in your URL bar. Now you should see the application open locally.
-To visit deployed application, [click here]()
+To visit deployed application, [click here](https://project-2-70181.herokuapp.com/)
 
 <a name="display"></a>
 ## App Display
 ### Gif Demo
 ![Demo]()
 ### Live Demo
-[Click Here]()
+[Click Here](https://project-2-70181.herokuapp.com/)
