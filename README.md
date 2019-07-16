@@ -1,11 +1,17 @@
 # SPEAK UP
 ----------
 ## Table of Contents 
+1. [Preview](#preview)
 1. [Overview](#overview)
 2. [Technologies](#technologies)
 3. [Local Installation](#installation)
 4. [App Display](#display)
 
+<a name="preview"></a>
+## Preview 
+The majority of crimes committed in the United States are never reported to the police. Worse still, the crimes that are reported are usually never solved. In 2016 a miserable 42 percent of violent crime and an even more miserable 36 percent of property crime was reported to US authorities.
+In fact over a 12-year period from 2004 and 2015 more than 250,000 hate crimes in the United States went by unreported, according to a federal report released in 2018. It found that [between 2011 and 2015 alone, 54% of violent hate crimes were not reported](https://www.chicagotribune.com/nation-world/ct-hate-crimes-unreported-20170628-story.html). The report claimed that many victims fail to report such crimes for both personal and institutional reasons, with some immigrants reluctant to get the police involved for fear of deportation.
+For others, it is fear of losing a job, one’s family or simply distrust of the police that deters them from prosecuting.
 
 <a name="overview"></a>
 ## Overview 
