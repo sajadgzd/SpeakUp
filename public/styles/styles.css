@@ -2,13 +2,17 @@
     line-height: 2.5;
 }
 
+body {
+    background-color: black;
+}
+
 
 /* for our two columns */
 
 .jumbotron {
     height: 350px;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: silver;
 }
 
 .first-column {
@@ -40,4 +44,10 @@
     color: blue;
     background-color: green;
     text-align: center;
+}
+
+#forms {
+    height: 500px;
+    color: black;
+    background-color: silver
 }
