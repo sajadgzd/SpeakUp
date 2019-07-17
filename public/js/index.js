@@ -93,35 +93,35 @@ $(document).ready(function() {
         }).then(updateMap);
 
 
-        $("#location").val("");
+        $("#findLocation").val("");
     });
 
 
-    $(document.body).on("click", ".reportButton", function(event) {
+    $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
+        var reportCategory = $("#reportCategory").val();
+        var reportLocation = $("#pac-input").val();
+        var reportDate = $("#reportDate").val();
+        var reportTime = $("#reportTime").val();
+        var description = $("#description").val();
+        var isReported = $("#isReported").val();
 
-
-        var location = $("#report-location").val().trim();
-        var date = $("#date").val().trim();
-        var time = $("#time").val().trim();
-        var type = $("#type").val().trim();
-        var description = $("#description").val().trim();
-        var isReported = $("#is-reported").val();
+        console.log(isReported);
 
 
         var newCrime = {
-                location: location,
-                date: date,
-                time: time,
-                type: type,
-                description: description,
+                location: reportLocation,
+                date: reportDate,
+                time: reportTime,
+                type: reportCategory,
+                description: reportDescription,
                 isReported: isReported
             }
             // Make the POST AJAX request to the API.
-        $.post("/api/new/crime", newCrime, updateMap);
+        $.post("/api/new/:" + reportCategory, newCrime, updateMap);
 
 
-        $("#location").val("");
+        $("#pac-input").val("");
     });
 
 
@@ -224,7 +224,7 @@ $(document).ready(function() {
 // //     event.preventDefault();
 
 // //     var example = {
-// //         text: $exampleText.val().trim(),
+// //         text: $exampleText.val(),
 // //         description: $exampleDescription.val().trim()
 // //     };
 
