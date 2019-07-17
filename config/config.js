@@ -4,7 +4,7 @@ module.exports = {
     "development": {
         "username": "root",
         "password": process.env.KEY,
-        "database": "exampledb",
+        "database": "sexAssaultdb",
         "host": "localhost",
         "dialect": "mysql"
     },
