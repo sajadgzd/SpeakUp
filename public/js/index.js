@@ -99,10 +99,12 @@ $(document).ready(function() {
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/" + findCategory + "/" + findLocation,
+            url: "/api/" + findCategory + "/" + findLocation + "/" + startDate +
+                "/" + endDate + "/" + findStartTime + "/" + findEndTime,
             method: "GET",
 
         }).then(updateMap);
+
 
 
         if (findLocation === "Brooklyn") {
@@ -160,6 +162,7 @@ $(document).ready(function() {
 
 
         $("#findLocation").val("");
+
     });
 
 
@@ -198,6 +201,20 @@ $(document).ready(function() {
     });
 
 
+    $(document.body).on("click", "#findAllButton", function(event) {
+
+        var findCategory = $("#findCategory").val();
+
+        $.ajax({
+            url: "/api/" + findCategory,
+            method: "GET",
+
+        }).then(updateMap);
+
+
+
+
+    });
 
 
 
