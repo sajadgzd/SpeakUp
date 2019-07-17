@@ -25,13 +25,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <!-- Links for Time Picker -->
-    <!-- <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script> -->
-    <script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
-    <!-- <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
-    <script type="text/javascript" src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <!-- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" /> -->
-    <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 
 </head>
 
@@ -73,29 +66,6 @@
             <br>
 
 
-            <div class="container">
-                <div class='col-md-5'>
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker6'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-md-5'>
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker7'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
             <input type="submit">
             </form>
@@ -121,18 +91,6 @@
 
 
     <script>
-        $(function () {
-            $('#datetimepicker6').datetimepicker();
-            $('#datetimepicker7').datetimepicker({
-                useCurrent: false //Important! See issue #1075
-            });
-            $("#datetimepicker6").on("dp.change", function (e) {
-                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-            });
-            $("#datetimepicker7").on("dp.change", function (e) {
-                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-            });
-        });
 
         var map;
         var geocoder;
