@@ -33,13 +33,12 @@
 <body>
     <div class="jumbotron">
         <h1 class="display-4">SPEAK UP!</h1>
-        <p class="lead">This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p>
+        <p class="lead">We are aiming to give a voice to the minorities and women to speak up and report crimes which are often not reported.</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        <a class="btn btn-primary btn-lg" href="#" role="button">View Sexual Assault Crimes</a>
-        <a class="btn btn-primary btn-lg" href="#" role="button">View Crimes by Borough</a>
-
+        <p>This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p>
+        <a class="btn btn-dark btn-md" href="#" role="button">Learn more</a>
+        <a class="btn btn-dark btn-md" href="#" role="button">View Sexual Assault Crimes</a>
+        <a class="btn btn-dark btn-md" href="#" role="button">View Crimes by Borough</a>
     </div>
 
     <div class="modal-body row">
@@ -76,8 +75,10 @@
                         <option value="Queens">Queens</option>
                         <option value="StatenIsland">Staten Island</option>
                     </select>
-                    </div>
-                    <br>
+
+                </div>
+
+
 
                     <!-- Date inputs for finding reports within a given time frame -->
                     <label for="startDate">From:</label>
@@ -95,7 +96,12 @@
                     <input type="time" id="findEndTime" name="findEndTime" required>
 
 
-                <input type="submit" id="findButton"> | <span><div style="color: aqua">for debugging purposes to get all crimes of the type</div></span> <input type="submit" id="findAllButton">
+                <input type="submit" id="findButton"> | <span style="color: aqua">for debugging purposes to get all crimes of the type</span> <input type="submit" id="findAllButton">
+
+
+            </form>
+            <br>
+            <hr>
 
 
                     <input type="submit" id="findButton">
@@ -118,7 +124,6 @@
                             <option value="HateCrime">Hate Crime</option>
                         </select>
                     </div>
-                    <br>
                     <div class="form-group">
                         <label for="reportLocation">Location:</label>
                         <select class="form-control" id="reportLocation">
