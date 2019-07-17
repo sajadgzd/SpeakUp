@@ -15,11 +15,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="script" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
 
-    <!-- Link to our stylsheet to be loaded after Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
 
 
-    <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -38,7 +37,7 @@
             <div id="map"></div>
         </div>
         <div class="col-md-6">
-           <!-- Form for looking for crimes in a given area/time -->
+            <!-- Form for looking for crimes in a given area/time -->
             <h2>Find</h2>
             <!-- Input for selecting borough to search in -->
             <span>Location
@@ -83,39 +82,46 @@
 
 
 
-    <!-- <div id="map"></div> -->
+    <div id="map"></div>
 
 
-<script>
-    var map;
-    var geocoder;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 8,
-            center: {
-                lat: 40.730610,
-                lng: -73.935242
-            }
-        });
-        geocoder = new google.maps.Geocoder();
-    }
-    function geocodeAddress(resultsMap = map) {
-        geocoder.geocode({
-            'address': fullAddress
-        }, function (results, status) {
-            if (status === 'OK') {
-                resultsMap.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                });
-            }
-        });
-    }
-</script>
+    <script>
+        var map;
+        var geocoder;
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoFiPaZBL_na4VFvKWVzOfOQwsGbNbWcc&callback=initMap" async defer></script>
-<script type="text/javascript " src="../public/js/index.js"></script>
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: {
+                    lat: 40.730610,
+                    lng: -73.935242
+                }
+            });
+            geocoder = new google.maps.Geocoder();
+
+
+        }
+
+        function geocodeAddress(resultsMap = map) {
+
+            geocoder.geocode({
+                'address': fullAddress
+            }, function(results, status) {
+                if (status === 'OK') {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                }
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoFiPaZBL_na4VFvKWVzOfOQwsGbNbWcc&callback=initMap" async defer></script>
+    <script type="text/javascript" src="./js/index.js"></script>
 
 </body>
+
 </html>
