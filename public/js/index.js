@@ -50,6 +50,7 @@ if ("geolocation" in navigator) {
 // ALL CODES GOES INSIDE OF THIS .ready() FUNCTION::::::::::
 $(document).ready(function() {
 
+<<<<<<< HEAD
     // code for time slider in Find form
     $("#slider-range").slider({
         range: true,
@@ -111,6 +112,8 @@ $(document).ready(function() {
         }
     });
 
+=======
+>>>>>>> 6cfc3718c9eee616a1b4432d7918c3a3cb515545
     // Helper Function to empty out the forms if necessary later on
     function clear() {
         $("#").empty();
