@@ -59,6 +59,7 @@ $(document).ready(function() {
 
 
     function updateMap(response) {
+
         // update the the map so it zooms in on the selected borough
         console.log(response);
     }
@@ -66,6 +67,7 @@ $(document).ready(function() {
     function addMarkerToMap(response) {
         // add markers to the map for the new crime reported
         console.log(response);
+
     }
 
 
