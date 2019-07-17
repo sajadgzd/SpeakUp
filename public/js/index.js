@@ -60,10 +60,12 @@ $(document).ready(function() {
 
     function updateMap(response) {
         // update the the map so it zooms in on the selected borough
+        console.log(response);
     }
 
     function addMarkerToMap(response) {
         // add markers to the map for the new crime reported
+        console.log(response);
     }
 
 
@@ -74,24 +76,23 @@ $(document).ready(function() {
         event.preventDefault();
 
         var findLocation = $("#findLocation").val();
-
         var startDate = $("#startDate").val();
         var endDate = $("#endDate").val();
         var findStartTime = $("#findStartTime").val();
         var findEndTime = $("#findEndTime").val();
         var findCategory = $("#findCategory").val();
-        console.log("value of findLocation::::::", findLocation);
-        console.log("value of startDate::::::", startDate);
-        console.log("value of endDate::::::", endDate);
-        console.log("value of findStartTime::::::", findStartTime);
-        console.log("value of findEndTime::::::", findEndTime);
-        console.log("value of findCategory::::::", findCategory);
+        // console.log("value of findLocation::::::", findLocation);
+        // console.log("value of startDate::::::", startDate);
+        // console.log("value of endDate::::::", endDate);
+        // console.log("value of findStartTime::::::", findStartTime);
+        // console.log("value of findEndTime::::::", findEndTime);
+        // console.log("value of findCategory::::::", findCategory);
 
 
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/:" + findCategory,
+            url: "/api/" + findCategory + "/" + findLocation,
             method: "GET",
 
         }).then(updateMap);
@@ -105,29 +106,31 @@ $(document).ready(function() {
         event.preventDefault();
         var reportCategory = $("#reportCategory").val();
         var reportLocation = $("#pac-input").val();
+        var reportBorough = $("#reportLocation").val();
         var reportDate = $("#reportDate").val();
         var reportTime = $("#reportTime").val();
         var reportDescription = $("#reportDescription").val();
         var isReported = $("#isReported").is(":checked");
 
-        console.log(isReported);
-        console.log(reportDescription);
-        console.log(reportTime);
-        console.log(reportDate);
-        console.log(reportLocation);
-        console.log(reportCategory);
+        console.log(reportBorough);
+        // console.log(isReported);
+        // console.log(reportDescription);
+        // console.log(reportTime);
+        // console.log(reportDate);
+        // console.log(reportLocation);
+        // console.log(reportCategory);
 
 
         var newCrime = {
                 location: reportLocation,
-                date: reportDate,
-                time: reportTime,
+                borough: reportBorough,
+                date: reportDate + "  " + reportTime,
                 type: reportCategory,
                 description: reportDescription,
-                isReported: isReported
+                reported: isReported
             }
             // Make the POST AJAX request to the API.
-        $.post("/api/new/:" + reportCategory, newCrime, addMarkerToMap);
+        $.post("/api/new/" + reportCategory, newCrime, addMarkerToMap);
 
 
         $("#pac-input").val("");
