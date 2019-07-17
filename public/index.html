@@ -26,17 +26,22 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="page-header">
-            <h1>SpeakUp</h1>
-        </div>
+    <div class="jumbotron">
+        <h1 class="display-4">SPEAK UP!</h1>
+        <p class="lead">This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">View Sexual Assault Crimes</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">View Crimes by Borough</a>
+
     </div>
 
     <div class="modal-body row">
         <div class="col-md-6">
             <div id="map"></div>
         </div>
-        <div class="col-md-6">
+        <div id="forms" class="col-md-6">
             <!-- Form for looking for crimes in a given area/time -->
             <h2>Find</h2>
             <!-- Input for selecting borough to search in -->
@@ -58,9 +63,7 @@
             <label for="start">From:</label>
             <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
 
-
-
-            <label for="start">To</label>
+            <label for="end">To</label>
             <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2018-01-01" max="2018-12-31">
             <br>
 

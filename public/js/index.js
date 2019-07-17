@@ -59,6 +59,10 @@ $(document).ready(function() {
 
     function updateMap(response) {
         // update the markers on the map using the response Json
+
+        if (location === "Brooklyn") {
+            console.log("BROOOOOKLYN")
+        }
     }
 
 
