@@ -64,11 +64,11 @@ $(document).ready(function() {
         console.log(response);
     }
 
-    // function addMarkerToMap(response) {
-    //     // add markers to the map for the new crime reported
-    //     console.log(response);
+    function addMarkerToMap(response) {
+        // add markers to the map for the new crime reported
+        console.log(response);
 
-    // }
+    }
 
 
     // CLICK HANDLERS

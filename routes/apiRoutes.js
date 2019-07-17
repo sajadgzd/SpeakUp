@@ -2,14 +2,15 @@ var db = require("../models");
 
 module.exports = function(app) {
     // Get all examples
-    app.get("/api/sexualAssault/:findLocation/:findCategory/:startDate/:endDate/:findStartTime/:findEndTime",
+    app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
         function(req, res) {
             db.SexAssualtCrime.findAll({
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
-                    from: {
-                        $between: [req.params.startDate + " " + req.params.findStartTime, req.params.endDate + " " + req.params.findEndTime];
+                    date: {
+                        $between: [req.params.startDate + " " + req.params.findStartTime, req.params.endDate + " " + req.params.findEndTime]
+
                     }
                 }
             }).then(function(dbSexAssault) {
