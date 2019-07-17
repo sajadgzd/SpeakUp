@@ -50,6 +50,7 @@ if ("geolocation" in navigator) {
 // ALL CODES GOES INSIDE OF THIS .ready() FUNCTION::::::::::
 $(document).ready(function() {
 
+
     // Helper Function to empty out the forms if necessary later on
     function clear() {
         $("#").empty();
@@ -58,88 +59,83 @@ $(document).ready(function() {
 
 
     function updateMap(response) {
-        // update the markers on the map using the response Json
 
-        if (location === "Brooklyn") {
-            console.log("BROOOOOKLYN")
-        }
+        // update the the map so it zooms in on the selected borough
+        console.log(response);
+    }
+
+    function addMarkerToMap(response) {
+        // add markers to the map for the new crime reported
+        console.log(response);
+
     }
 
 
     // CLICK HANDLERS
     // ==========================================================
     // .on("click") function associated with the Search Button
-    $(document).on("click", ".viewButton", function(event) {
+    $(document).on("click", "#findButton", function(event) {
         event.preventDefault();
 
-        var location = $("#location").val().trim();
-        // form validation
-        if (location == "") {
-            // $(".invalid").css("display", "block");
-            console.log("LOCATION INPUT IS EMPTY");
-            return false;
-        } else {
-            location = location.replace(/\W+/g, " ");
-        }
-
-        var date = $("#date").val().trim();
-        var time = $("#time").val().trim();
-        var type = $("#type").val().trim();
-        // console.log("value of x::::::", location);
-
-        // form validation
-        // if (location == "") {
-        //     $(".invalid").css("display", "block");
-        //     return false;
-        // }
-        // if (location !== "") {
-        //     if (["/", "^", "\'", "*", "!"].includes(location)) {
-        //         $(".invalid").css("display", "block");
-        //         return false;
-        //     } else {
-        //         $(".invalid").css("display", "none");
-        //     }
-        // }
+        var findLocation = $("#findLocation").val();
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+        var findStartTime = $("#findStartTime").val();
+        var findEndTime = $("#findEndTime").val();
+        var findCategory = $("#findCategory").val();
+        // console.log("value of findLocation::::::", findLocation);
+        // console.log("value of startDate::::::", startDate);
+        // console.log("value of endDate::::::", endDate);
+        // console.log("value of findStartTime::::::", findStartTime);
+        // console.log("value of findEndTime::::::", findEndTime);
+        // console.log("value of findCategory::::::", findCategory);
 
 
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/crime",
+            url: "/api/" + findCategory + "/" + findLocation,
             method: "GET",
 
         }).then(updateMap);
 
 
-        $("#location").val("");
+        $("#findLocation").val("");
     });
 
 
-    $(document.body).on("click", ".reportButton", function(event) {
+    $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
+        var reportCategory = $("#reportCategory").val();
+        var reportLocation = $("#pac-input").val();
+        var reportBorough = $("#reportLocation").val();
+        var reportDate = $("#reportDate").val();
+        var reportTime = $("#reportTime").val();
+        var reportDescription = $("#reportDescription").val();
+        var isReported = $("#isReported").is(":checked");
 
-
-        var location = $("#report-location").val().trim();
-        var date = $("#date").val().trim();
-        var time = $("#time").val().trim();
-        var type = $("#type").val().trim();
-        var description = $("#description").val().trim();
-        var isReported = $("#is-reported").val();
+        console.log(reportBorough);
+        // console.log(isReported);
+        // console.log(reportDescription);
+        // console.log(reportTime);
+        // console.log(reportDate);
+        // console.log(reportLocation);
+        // console.log(reportCategory);
 
 
         var newCrime = {
-                location: location,
-                date: date,
-                time: time,
-                type: type,
-                description: description,
-                isReported: isReported
+                location: reportLocation,
+                borough: reportBorough,
+                date: reportDate + "  " + reportTime,
+                type: reportCategory,
+                description: reportDescription,
+                reported: isReported
             }
             // Make the POST AJAX request to the API.
-        $.post("/api/new/crime", newCrime, updateMap);
+        $.post("/api/new/" + reportCategory, newCrime, addMarkerToMap);
 
 
-        $("#location").val("");
+        $("#pac-input").val("");
     });
 
 
@@ -242,7 +238,7 @@ $(document).ready(function() {
 // //     event.preventDefault();
 
 // //     var example = {
-// //         text: $exampleText.val().trim(),
+// //         text: $exampleText.val(),
 // //         description: $exampleDescription.val().trim()
 // //     };
 

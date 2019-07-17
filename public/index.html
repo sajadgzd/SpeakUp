@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="script" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
 
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -45,29 +46,47 @@
             <!-- Form for looking for crimes in a given area/time -->
             <h2>Find</h2>
             <!-- Input for selecting borough to search in -->
-            <span>Location
-                <form action="js/index.js">
-                    <input list="locations" name="location">
-                    <datalist id="locations">
-                        <option value="All">
-                        <option value="Bronx">
-                        <option value="Brooklyn">
-                        <option value="Manhattan">
-                        <option value="Queens">
-                        <option value="Staten Island">
-                    </datalist>
-            </span>
-            <br>
 
-            <!-- Date inputs for finding reports within a given time frame -->
-            <label for="start">From:</label>
-            <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+            <form>
+                <div class="form-group">
+                    <label for="findLocation">Crime Category:</label>
+                    <select class="form-control" id="findCategory">
+                        <option value="SexualAssault">Sexual Assault</option>
+                        <option value="HateCrime">Hate Crime</option>
 
-            <label for="end">To</label>
-            <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2018-01-01" max="2018-12-31">
-            <br>
+                    </select>
+                </div>
 
-            <input type="submit">
+                <div class="form-group">
+                    <label for="findLocation">Location:</label>
+                    <select class="form-control" id="findLocation">
+                        <option value="Bronx">Bronx</option>
+                        <option value="Brooklyn">Brooklyn</option>
+                        <option value="Manhattan">Manhattan</option>
+                        <option value="Queens">Queens</option>
+                        <option value="StatenIsland">Staten Island</option>
+                    </select>
+                </div>
+                <br>
+
+                <!-- Date inputs for finding reports within a given time frame -->
+                <label for="startDate">From:</label>
+                <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+
+                <label for="endDate">To:</label>
+                <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                <br>
+
+                <!-- Time inputs with two 24 hour times. default range is set to all day -->
+                <label for="findStartTime">Start time</label>
+                <input type="time" id="findStartTime" name="findStartTime" required>
+
+                <label for="findEndTime">End time</label>
+                <input type="time" id="findEndTime" name="findEndTime" required>
+
+
+                <input type="submit" id="findButton">
+
             </form>
             <br><br>
 
@@ -77,9 +96,56 @@
 
             <div class="Report">
                 <h2>Report</h2>
-                <div class="locationInput">LOCATION:
-                    <input id="pac-input" class="controls" type="text" placeholder="Find Location of Crime">
-                </div>
+                <form>
+                    <!-- input for report Category -->
+                    <div class="form-group">
+                        <label for="reportCategory">Crime Category:</label>
+                        <select class="form-control" id="reportCategory">
+                            <option value="SexualAssault">Sexual Assault</option>
+                            <option value="HateCrime">Hate Crime</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="reportLocation">Location:</label>
+                        <select class="form-control" id="reportLocation">
+                            <option value="Bronx">Bronx</option>
+                            <option value="Brooklyn">Brooklyn</option>
+                            <option value="Manhattan">Manhattan</option>
+                            <option value="Queens">Queens</option>
+                            <option value="StatenIsland">Staten Island</option>
+                        </select>
+                    </div>
+
+                    <!-- location input using Google Maps search bar -->
+                    <div class="locationInput">Location:
+                        <input id="pac-input" class="controls" type="text" placeholder="Location of Crime">
+                    </div>
+                    <br>
+
+                    <!-- specific date to report crime -->
+
+                    Date: <input type="date" id="reportDate" name="reportDate" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                    <br>
+
+                    <!-- Specific time to give to reported crime -->
+                    <label for="reportTime">Time of Incident:</label>
+                    <input type="time" id="reportTime" name="reportTime" required>
+
+                    <!-- optional description area -->
+                    <div class="form-group">
+                        <label for="reportDescription">Description:</label>
+                        <textarea class="form-control" id="reportDescription" rows="3"></textarea>
+                    </div>
+
+                    <!-- Default checked -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="isReported">
+                        <label class="custom-control-label" for="isReported">Was the Crime Reported?</label>
+                    </div>
+
+                    <input type="submit" id="reportButton">
+                </form>
             </div>
 
 
@@ -104,6 +170,9 @@
         // This example requires the Places library. Include the libraries=places
         // parameter when you first load the API. For example:
 
+
+        var map;
+        var geocoder;
 
 
         function initAutocomplete() {
@@ -180,7 +249,6 @@
 
     <script type="text/javascript" src="./js/index.js"></script>
 
-
-
+</body>
 
 </html>
