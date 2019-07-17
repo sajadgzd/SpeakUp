@@ -69,40 +69,25 @@ $(document).ready(function() {
     $(document).on("click", "#findButton", function(event) {
         event.preventDefault();
 
-        var location = $("#location").val();
-        // form validation
-        // if (location == "") {
-        // $(".invalid").css("display", "block");
-        //     console.log("LOCATION INPUT IS EMPTY");
-        //     return false;
-        // } else {
-        //     location = location.replace(/\W+/g, " ");
-        // }
+        var findLocation = $("#findLocation").val();
 
-        var date = $("#date").val().trim();
-        var time = $("#time").val().trim();
-        var type = $("#type").val().trim();
-        // console.log("value of x::::::", location);
-
-        // form validation
-        // if (location == "") {
-        //     $(".invalid").css("display", "block");
-        //     return false;
-        // }
-        // if (location !== "") {
-        //     if (["/", "^", "\'", "*", "!"].includes(location)) {
-        //         $(".invalid").css("display", "block");
-        //         return false;
-        //     } else {
-        //         $(".invalid").css("display", "none");
-        //     }
-        // }
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+        var findStartTime = $("#findStartTime").val();
+        var findEndTime = $("#findEndTime").val();
+        var findCategory = $("#findCategory").val();
+        console.log("value of x::::::", findLocation);
+        console.log("value of x::::::", startDate);
+        console.log("value of x::::::", endDate);
+        console.log("value of x::::::", findStartTime);
+        console.log("value of x::::::", findEndTime);
+        console.log("value of x::::::", findCategory);
 
 
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/crime",
+            url: "/api/sexualAssault",
             method: "GET",
 
         }).then(updateMap);
