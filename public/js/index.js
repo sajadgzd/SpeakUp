@@ -64,11 +64,11 @@ $(document).ready(function() {
         console.log(response);
     }
 
-    function addMarkerToMap(response) {
-        // add markers to the map for the new crime reported
-        console.log(response);
+    // function addMarkerToMap(response) {
+    //     // add markers to the map for the new crime reported
+    //     console.log(response);
 
-    }
+    // }
 
 
     // CLICK HANDLERS
@@ -94,7 +94,8 @@ $(document).ready(function() {
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/" + findCategory + "/" + findLocation,
+            url: "/api/" + findCategory + "/" + findLocation + "/" + startDate +
+                "/" + endDate + "/" + findStartTime + "/" + findEndTime,
             method: "GET",
 
         }).then(updateMap);
