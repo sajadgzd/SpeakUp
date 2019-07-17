@@ -59,7 +59,13 @@ $(document).ready(function() {
 
 
     function updateMap(response) {
-        // update the markers on the map using the response Json
+        // update the the map so it zooms in on the selected borough
+        console.log(response);
+    }
+
+    function addMarkerToMap(response) {
+        // add markers to the map for the new crime reported
+        console.log(response);
     }
 
 
@@ -70,58 +76,64 @@ $(document).ready(function() {
         event.preventDefault();
 
         var findLocation = $("#findLocation").val();
-
         var startDate = $("#startDate").val();
         var endDate = $("#endDate").val();
         var findStartTime = $("#findStartTime").val();
         var findEndTime = $("#findEndTime").val();
         var findCategory = $("#findCategory").val();
-        console.log("value of x::::::", findLocation);
-        console.log("value of x::::::", startDate);
-        console.log("value of x::::::", endDate);
-        console.log("value of x::::::", findStartTime);
-        console.log("value of x::::::", findEndTime);
-        console.log("value of x::::::", findCategory);
+        // console.log("value of findLocation::::::", findLocation);
+        // console.log("value of startDate::::::", startDate);
+        // console.log("value of endDate::::::", endDate);
+        // console.log("value of findStartTime::::::", findStartTime);
+        // console.log("value of findEndTime::::::", findEndTime);
+        // console.log("value of findCategory::::::", findCategory);
 
 
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/sexualAssault",
+            url: "/api/" + findCategory + "/" + findLocation,
             method: "GET",
 
         }).then(updateMap);
 
 
-        $("#location").val("");
+        $("#findLocation").val("");
     });
 
 
-    $(document.body).on("click", ".reportButton", function(event) {
+    $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
+        var reportCategory = $("#reportCategory").val();
+        var reportLocation = $("#pac-input").val();
+        var reportBorough = $("#reportLocation").val();
+        var reportDate = $("#reportDate").val();
+        var reportTime = $("#reportTime").val();
+        var reportDescription = $("#reportDescription").val();
+        var isReported = $("#isReported").is(":checked");
 
-
-        var location = $("#report-location").val().trim();
-        var date = $("#date").val().trim();
-        var time = $("#time").val().trim();
-        var type = $("#type").val().trim();
-        var description = $("#description").val().trim();
-        var isReported = $("#is-reported").val();
+        console.log(reportBorough);
+        // console.log(isReported);
+        // console.log(reportDescription);
+        // console.log(reportTime);
+        // console.log(reportDate);
+        // console.log(reportLocation);
+        // console.log(reportCategory);
 
 
         var newCrime = {
-                location: location,
-                date: date,
-                time: time,
-                type: type,
-                description: description,
-                isReported: isReported
+                location: reportLocation,
+                borough: reportBorough,
+                date: reportDate + "  " + reportTime,
+                type: reportCategory,
+                description: reportDescription,
+                reported: isReported
             }
             // Make the POST AJAX request to the API.
-        $.post("/api/new/crime", newCrime, updateMap);
+        $.post("/api/new/" + reportCategory, newCrime, addMarkerToMap);
 
 
-        $("#location").val("");
+        $("#pac-input").val("");
     });
 
 
@@ -224,7 +236,7 @@ $(document).ready(function() {
 // //     event.preventDefault();
 
 // //     var example = {
-// //         text: $exampleText.val().trim(),
+// //         text: $exampleText.val(),
 // //         description: $exampleDescription.val().trim()
 // //     };
 
