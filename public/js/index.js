@@ -61,7 +61,12 @@ $(document).ready(function() {
     function updateMap(response) {
 
         // update the the map so it zooms in on the selected borough
+        if (findLocation === "Brooklyn") {
+            console.log("Brooklyn")
+        }
+
         console.log(response);
+        console.log(findLocation.value)
     }
 
     function addMarkerToMap(response) {
@@ -101,7 +106,63 @@ $(document).ready(function() {
         }).then(updateMap);
 
 
-        // $("#findLocation").val("");
+
+        if (findLocation === "Brooklyn") {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 40.650002,
+                    lng: -73.949997
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+        } else if (findLocation === "Bronx") {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 40.82732,
+                    lng: -73.92357
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+        } else if (findLocation === "Manhattan") {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 40.758896,
+                    lng: -73.985130
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+        } else if (findLocation === "Queens") {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 40.742054,
+                    lng: -73.769417
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+        } else if (findLocation === "StatenIsland") {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 40.579021,
+                    lng: -74.151535
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+        }
+
+
+
+
+        $("#findLocation").val("");
+
     });
 
 
