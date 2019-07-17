@@ -21,7 +21,9 @@
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
 
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -55,12 +57,14 @@
             <br>
 
             <!-- Date inputs for finding reports within a given time frame -->
-            <label for="start">From:</label>
+            <label for="startDate">From:</label>
             <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
 
-            <label for="start">To</label>
+            <label for="endDate">To</label>
             <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2018-01-01" max="2018-12-31">
             <br>
+
+
 
             <input type="submit">
             </form>
@@ -93,6 +97,9 @@
         // This example requires the Places library. Include the libraries=places
         // parameter when you first load the API. For example:
 
+
+        var map;
+        var geocoder;
 
 
         function initAutocomplete() {
@@ -169,7 +176,6 @@
 
     <script type="text/javascript" src="./js/index.js"></script>
 
-
-
+</body>
 
 </html>
