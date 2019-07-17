@@ -2,11 +2,35 @@
     line-height: 2.5;
 }
 
+/* for our two columns */
+.first-column {
+    width: 40%;
+    float: left;
+    text-align: center;
+    border-width: 2px;
+  }
+  
+  .second-column {
+    width: 40%;
+    float: right;
+    text-align: center;
+    border-width: 2px;
+  }
+
 #map {
-    left: 70px;
-    width: 500px;
+    /* left: 70px; */
+    width: 100%;
     height: 500px;
     border: solid;
     border-color: black;
-    left: 80px;
+    /* left: 80px; */
+}
+
+.page-header {
+    /* position: relative;   */
+    width: 100%;
+
+    color: blue;
+    background-color: green;
+    text-align: center;
 }
