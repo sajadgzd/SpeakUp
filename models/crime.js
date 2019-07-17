@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Crime = sequelize.define("Crime", {
+    var SexAssualtCrime = sequelize.define("SexAssualtCrime", {
         type: DataTypes.STRING,
         location: DataTypes.STRING,
         date: DataTypes.DATE,
@@ -7,5 +7,5 @@ module.exports = function(sequelize, DataTypes) {
         description: DataTypes.TEXT,
 
     });
-    return Crime;
+    return SexAssualtCrime;
 };
