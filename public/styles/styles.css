@@ -82,6 +82,10 @@ body {
     text-align: center
 }
 
+.Report {
+    border-top: solid
+}
+
 #crimeDisplay {
     background-color: black;
     height: 350px
