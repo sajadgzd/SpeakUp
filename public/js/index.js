@@ -101,7 +101,7 @@ $(document).ready(function() {
         }).then(updateMap);
 
 
-        $("#findLocation").val("");
+        // $("#findLocation").val("");
     });
 
 
@@ -140,6 +140,20 @@ $(document).ready(function() {
     });
 
 
+    $(document.body).on("click", "#findAllButton", function(event) {
+
+        var findCategory = $("#findCategory").val();
+
+        $.ajax({
+            url: "/api/" + findCategory,
+            method: "GET",
+
+        }).then(updateMap);
+
+
+
+
+    });
 
 
 

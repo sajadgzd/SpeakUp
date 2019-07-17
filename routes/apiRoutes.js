@@ -1,4 +1,6 @@
 var db = require("../models");
+// var moment = require("moment");
+// console.log(moment());
 
 module.exports = function(app) {
     // Get all examples
@@ -8,10 +10,23 @@ module.exports = function(app) {
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
-                    date: {
-                        $between: [req.params.startDate + " " + req.params.findStartTime, req.params.endDate + " " + req.params.findEndTime]
+                    // date: {
+                    //     $gte: req.params.startDate + "T" + req.params.findStartTime + "Z",
+                    //     $lte: req.params.endDate + "T" + req.params.findEndTime + "Z"
+                    // }
+                }
+            }).then(function(dbSexAssault) {
+                res.json(dbSexAssault);
+            });
+        });
 
-                    }
+
+    // Get all crimes of selected category
+    app.get("/api/:findCategory",
+        function(req, res) {
+            db.SexAssualtCrime.findAll({
+                where: {
+                    type: req.params.findCategory
                 }
             }).then(function(dbSexAssault) {
                 res.json(dbSexAssault);
@@ -26,10 +41,4 @@ module.exports = function(app) {
         });
     });
 
-    // Delete an example by id
-    // app.delete("/api/sexualAssault/:id", function(req, res) {
-    //     db.SexAssualtCrime.destroy({ where: { id: req.params.id } }).then(function(dbSexAssault) {
-    //         res.json(dbSexAssault);
-    //     });
-    // });
 };
