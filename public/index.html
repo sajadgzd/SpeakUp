@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="script" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
 
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
 
@@ -42,18 +43,16 @@
             <!-- Form for looking for crimes in a given area/time -->
             <h2>Find</h2>
             <!-- Input for selecting borough to search in -->
-            <span>Location
-                <form action="js/index.js">
-                    <input list="locations" name="location">
-                    <datalist id="locations">
-                        <option value="All">
-                        <option value="Bronx">
-                        <option value="Brooklyn">
-                        <option value="Manhattan">
-                        <option value="Queens">
-                        <option value="Staten Island">
-                    </datalist>
-            </span>
+            <div class="form-group">
+                <label for="findLocation">Location:</label>
+                <select class="form-control" id="findLocation">
+                    <option value="Bronx">Bronx</option>
+                    <option value="Brooklyn">Brooklyn</option>
+                    <option value="Manhattan">Manhattan</option>
+                    <option value="Queens">Queens</option>
+                    <option value="StatenIsland">Staten Island</option>
+                </select>
+            </div>
             <br>
 
             <!-- Date inputs for finding reports within a given time frame -->
@@ -64,9 +63,15 @@
             <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2018-01-01" max="2018-12-31">
             <br>
 
+            <!-- Time inputs with two 24 hour times. default range is set to all day -->
+            <label for="findStartTime">Start time</label>
+            <input type="time" id="findStartTime" name="findStartTime" required>
+
+            <label for="findEndTime">End time</label>
+            <input type="time" id="findEndTime" name="findEndTime" required>
 
 
-            <input type="submit">
+            <input type="submit" id="findButton">
             </form>
             <br><br>
 
@@ -118,14 +123,14 @@
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
             // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function() {
+            map.addListener('bounds_changed', function () {
                 searchBox.setBounds(map.getBounds());
             });
 
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
-            searchBox.addListener('places_changed', function() {
+            searchBox.addListener('places_changed', function () {
                 var places = searchBox.getPlaces();
 
                 if (places.length == 0) {
@@ -133,14 +138,14 @@
                 }
 
                 // Clear out the old markers.
-                markers.forEach(function(marker) {
+                markers.forEach(function (marker) {
                     marker.setMap(null);
                 });
                 markers = [];
 
                 // For each place, get the icon, name and location.
                 var bounds = new google.maps.LatLngBounds();
-                places.forEach(function(place) {
+                places.forEach(function (place) {
                     if (!place.geometry) {
                         console.log("Returned place contains no geometry");
                         return;
@@ -172,7 +177,9 @@
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U&libraries=places&callback=initAutocomplete" async defer></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
     <script type="text/javascript" src="./js/index.js"></script>
 
