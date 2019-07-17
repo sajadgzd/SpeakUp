@@ -76,18 +76,18 @@ $(document).ready(function() {
         var findStartTime = $("#findStartTime").val();
         var findEndTime = $("#findEndTime").val();
         var findCategory = $("#findCategory").val();
-        console.log("value of x::::::", findLocation);
-        console.log("value of x::::::", startDate);
-        console.log("value of x::::::", endDate);
-        console.log("value of x::::::", findStartTime);
-        console.log("value of x::::::", findEndTime);
-        console.log("value of x::::::", findCategory);
+        console.log("value of findLocation::::::", findLocation);
+        console.log("value of startDate::::::", startDate);
+        console.log("value of endDate::::::", endDate);
+        console.log("value of findStartTime::::::", findStartTime);
+        console.log("value of findEndTime::::::", findEndTime);
+        console.log("value of findCategory::::::", findCategory);
 
 
         // Make the AJAX request to the API - GETs the JSON data from the route.
         // The data then gets passed as an argument
         $.ajax({
-            url: "/api/sexualAssault",
+            url: "/api/:" + findCategory,
             method: "GET",
 
         }).then(updateMap);
