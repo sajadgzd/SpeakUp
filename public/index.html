@@ -6,15 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/Users/ryandoty/Desktop/project-2/public/styles/styles.css">
+
+    <!-- AJAX CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- Bootstrap CDNs -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="script" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+
+    <!-- Link to our stylsheet to be loaded after Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
+
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
+    <div class="container">
+        <div class="page-header">
+            <h1>SpeakUp</h1>
+        </div>
+    </div>
+
+    <div class="modal-body row">
+        <div class="col-md-6">
+            <div id="map"></div>
+        </div>
+        <div class="col-md-6">
+           <!-- Form for looking for crimes in a given area/time -->
+            <h2>Find</h2>
+            <!-- Input for selecting borough to search in -->
+            <span>Location
+                <form action="js/index.js">
+                    <input list="locations" name="location">
+                    <datalist id="locations">
+                        <option value="All">
+                        <option value="Bronx">
+                        <option value="Brooklyn">
+                        <option value="Manhattan">
+                        <option value="Queens">
+                        <option value="Staten Island">
+                    </datalist>
+            </span>
+            <br>
+
+            <!-- Date inputs for finding reports within a given time frame -->
+            <label for="start">From:</label>
+            <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+
+            <label for="start">To</label>
+            <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+            <br>
+
+            <input type="submit">
+            </form>
+            <br><br>
 
 
 
-    <div class="col-lg-6 col-md-12 col-sm-12" id="map"></div>
+            <!-- Form for submitting a report -->
+            <h2>Report</h2>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- <div id="map"></div> -->
 </body>
 
 <script>
@@ -39,7 +101,7 @@
 
         geocoder.geocode({
             'address': fullAddress
-        }, function(results, status) {
+        }, function (results, status) {
             if (status === 'OK') {
                 resultsMap.setCenter(results[0].geometry.location);
                 var marker = new google.maps.Marker({
@@ -50,6 +112,7 @@
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoFiPaZBL_na4VFvKWVzOfOQwsGbNbWcc&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoFiPaZBL_na4VFvKWVzOfOQwsGbNbWcc&callback=initMap" async
+    defer></script>
 
 </html>
