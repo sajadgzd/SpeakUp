@@ -59,7 +59,11 @@ $(document).ready(function() {
 
 
     function updateMap(response) {
-        // update the markers on the map using the response Json
+        // update the the map so it zooms in on the selected borough
+    }
+
+    function addMarkerToMap(response) {
+        // add markers to the map for the new crime reported
     }
 
 
@@ -103,10 +107,15 @@ $(document).ready(function() {
         var reportLocation = $("#pac-input").val();
         var reportDate = $("#reportDate").val();
         var reportTime = $("#reportTime").val();
-        var description = $("#description").val();
-        var isReported = $("#isReported").val();
+        var reportDescription = $("#reportDescription").val();
+        var isReported = $("#isReported").is(":checked");
 
         console.log(isReported);
+        console.log(reportDescription);
+        console.log(reportTime);
+        console.log(reportDate);
+        console.log(reportLocation);
+        console.log(reportCategory);
 
 
         var newCrime = {
@@ -118,7 +127,7 @@ $(document).ready(function() {
                 isReported: isReported
             }
             // Make the POST AJAX request to the API.
-        $.post("/api/new/:" + reportCategory, newCrime, updateMap);
+        $.post("/api/new/:" + reportCategory, newCrime, addMarkerToMap);
 
 
         $("#pac-input").val("");
