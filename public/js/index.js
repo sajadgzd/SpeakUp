@@ -57,10 +57,10 @@ $(document).ready(function() {
         max: 1440,
         step: 15,
         values: [540, 1020],
-        slide: function (e, ui) {
+        slide: function(e, ui) {
             var hours1 = Math.floor(ui.values[0] / 60);
             var minutes1 = ui.values[0] - (hours1 * 60);
-    
+
             if (hours1.length == 1) hours1 = '0' + hours1;
             if (minutes1.length == 1) minutes1 = '0' + minutes1;
             if (minutes1 == 0) minutes1 = '00';
@@ -80,14 +80,14 @@ $(document).ready(function() {
                 hours1 = 12;
                 minutes1 = minutes1;
             }
-    
-    
-    
+
+
+
             $('.slider-time').html(hours1 + ':' + minutes1);
-    
+
             var hours2 = Math.floor(ui.values[1] / 60);
             var minutes2 = ui.values[1] - (hours2 * 60);
-    
+
             if (hours2.length == 1) hours2 = '0' + hours2;
             if (minutes2.length == 1) minutes2 = '0' + minutes2;
             if (minutes2 == 0) minutes2 = '00';
@@ -106,7 +106,7 @@ $(document).ready(function() {
                 hours2 = hours2;
                 minutes2 = minutes2 + " AM";
             }
-    
+
             $('.slider-time2').html(hours2 + ':' + minutes2);
         }
     });
@@ -126,18 +126,18 @@ $(document).ready(function() {
     // CLICK HANDLERS
     // ==========================================================
     // .on("click") function associated with the Search Button
-    $(document).on("click", ".viewButton", function(event) {
+    $(document).on("click", "#findButton", function(event) {
         event.preventDefault();
 
-        var location = $("#location").val().trim();
+        var location = $("#location").val();
         // form validation
-        if (location == "") {
-            // $(".invalid").css("display", "block");
-            console.log("LOCATION INPUT IS EMPTY");
-            return false;
-        } else {
-            location = location.replace(/\W+/g, " ");
-        }
+        // if (location == "") {
+        // $(".invalid").css("display", "block");
+        //     console.log("LOCATION INPUT IS EMPTY");
+        //     return false;
+        // } else {
+        //     location = location.replace(/\W+/g, " ");
+        // }
 
         var date = $("#date").val().trim();
         var time = $("#time").val().trim();
