@@ -56,50 +56,53 @@
             <!-- Form for looking for crimes in a given area/time -->
             <h2>Find</h2>
             <!-- Input for selecting borough to search in -->
-
-            <form>
-                <div class="form-group">
-                    <label for="findLocation">Crime Category:</label>
-                    <select class="form-control" id="findCategory">
+            <div class="find">
+                <form>
+                    <div class="form-group">
+                        <label for="findLocation">Crime Category:</label>
+                        <select class="form-control" id="findCategory">
                         <option value="SexualAssault">Sexual Assault</option>
                         <option value="HateCrime">Hate Crime</option>
 
                     </select>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="findLocation">Location:</label>
-                    <select class="form-control" id="findLocation">
+                    <div class="form-group">
+                        <label for="findLocation">Location:</label>
+                        <select class="form-control" id="findLocation">
                         <option value="Bronx">Bronx</option>
                         <option value="Brooklyn">Brooklyn</option>
                         <option value="Manhattan">Manhattan</option>
                         <option value="Queens">Queens</option>
                         <option value="StatenIsland">Staten Island</option>
                     </select>
-                </div>
-                <br>
+                    </div>
+                    <br>
 
-                <!-- Date inputs for finding reports within a given time frame -->
-                <label for="startDate">From:</label>
-                <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                    <!-- Date inputs for finding reports within a given time frame -->
+                    <label for="startDate">From:</label>
+                    <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01" max="2018-12-31">
 
-                <label for="endDate">To:</label>
-                <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01" max="2018-12-31">
-                <br>
+                    <label for="endDate">To:</label>
+                    <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                    <br>
 
-                <!-- Time inputs with two 24 hour times. default range is set to all day -->
-                <label for="findStartTime">Start time</label>
-                <input type="time" id="findStartTime" name="findStartTime" required>
+                    <!-- Time inputs with two 24 hour times. default range is set to all day -->
+                    <label for="findStartTime">Start time</label>
+                    <input type="time" id="findStartTime" name="findStartTime" required>
 
-                <label for="findEndTime">End time</label>
-                <input type="time" id="findEndTime" name="findEndTime" required>
+                    <label for="findEndTime">End time</label>
+                    <input type="time" id="findEndTime" name="findEndTime" required>
 
 
                 <input type="submit" id="findButton"> | <span><div style="color: aqua">for debugging purposes to get all crimes of the type</div></span> <input type="submit" id="findAllButton">
 
-            </form>
-            <br><br>
 
+                    <input type="submit" id="findButton">
+
+                </form>
+                <br><br>
+            </div>
 
 
             <!-- Form for submitting a report -->
