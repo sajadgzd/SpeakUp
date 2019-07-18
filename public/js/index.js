@@ -161,7 +161,7 @@ $(document).ready(function() {
 
 
 
-        $("#findLocation").val("");
+        // $("#findLocation").val("");
 
     });
 
