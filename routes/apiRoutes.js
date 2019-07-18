@@ -41,4 +41,15 @@ module.exports = function(app) {
         });
     });
 
+
+    // get the most recent crime by using the createdAt attribute in the db
+    app.get("/api/mostRecent", function(req, res) {
+        db.SexAssualtCrime.findAll({
+            limit: 1,
+            order: [ ['createdAt', 'DESC']]
+        }).then(function(recent) {
+            res.json(recent);
+        });
+    });
+
 };
