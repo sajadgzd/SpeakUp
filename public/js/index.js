@@ -5,6 +5,7 @@
 var latitude;
 var longitude;
 
+
 function ipLookUp() {
     $.ajax('http://ip-api.com/json')
         .then(
@@ -176,19 +177,21 @@ $(document).ready(function() {
         var reportDescription = $("#reportDescription").val();
         var isReported = $("#isReported").is(":checked");
 
-        console.log(reportBorough);
+        // console.log(reportBorough);
         // console.log(isReported);
         // console.log(reportDescription);
         // console.log(reportTime);
         // console.log(reportDate);
         // console.log(reportLocation);
         // console.log(reportCategory);
+        var convertedDate = moment(reportDate + " " + reportTime).format("X");
+        convertedDate = parseInt(convertedDate);
 
 
         var newCrime = {
                 location: reportLocation,
                 borough: reportBorough,
-                date: reportDate + "  " + reportTime,
+                date: convertedDate,
                 type: reportCategory,
                 description: reportDescription,
                 reported: isReported

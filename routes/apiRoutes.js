@@ -1,22 +1,31 @@
 var db = require("../models");
-// var moment = require("moment");
+var moment = require("moment");
 // console.log(moment());
 
 module.exports = function(app) {
     // Get all examples
     app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
         function(req, res) {
+            var StartconvertedDate = moment(req.params.startDate + " " + req.params.findStartTime).format("X");
+            StartconvertedDate = parseInt(StartconvertedDate);
+            var EndconvertedDate = moment(req.params.endDate + " " + req.params.findEndTime).format("X");
+            EndconvertedDate = parseInt(EndconvertedDate);
+            var obj = {
+                start: StartconvertedDate,
+                end: EndconvertedDate
+            }
             db.SexAssualtCrime.findAll({
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
                     date: {
-                        $gte: req.params.startDate + "T" + req.params.findStartTime + "Z",
-                        $lte: req.params.endDate + "T" + req.params.findEndTime + "Z"
+                        $lte: EndconvertedDate,
+                        $gte: StartconvertedDate
                     }
                 }
             }).then(function(dbSexAssault) {
-                res.json(dbSexAssault);
+                // console.log(obj);
+                res.json([obj, dbSexAssault]);
             });
         });
 
