@@ -47,8 +47,28 @@ if ("geolocation" in navigator) {
     ipLookUp()
 }
 
+
+// global function that will be used to post the most recent crimes whenever the page loads
+// or a user adds a crime
+function getMostRecent() {
+    // first clear out the div
+    $("#crimeDisplay").empty();
+
+    //AJAX call to route that grabs the most recent crime
+    $.ajax({
+        url: "/api/mostRecent",
+        method: "GET"
+    }).then(function(response) {
+        $("#crimeDisplay").append(response);
+        console.log(response);
+    });
+}
+
 // ALL CODES GOES INSIDE OF THIS .ready() FUNCTION::::::::::
 $(document).ready(function() {
+
+    // calling global function to get most recent crimes when page loads
+    getMostRecent();
 
 
     // Helper Function to empty out the forms if necessary later on
