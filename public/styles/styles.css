@@ -217,3 +217,10 @@ input {
 #time-range {
     width: 400px;
 }
+
+/* media query to remove recent crime on smaller screens */
+@media screen and (max-width: 768px) {
+    #recentCrime {
+        display: none;
+    }
+}
