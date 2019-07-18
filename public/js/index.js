@@ -122,7 +122,7 @@ $(document).ready(function() {
                     lat: 40.8475416,
                     lng: -73.8981581
                 },
-                zoom: 12.5,
+                zoom: 12.2,
                 mapTypeId: 'roadmap'
             });
 
