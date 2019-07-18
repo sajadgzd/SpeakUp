@@ -59,19 +59,21 @@ function getMostRecent() {
     $.ajax({
         url: "/api/mostRecent",
         method: "GET"
-    }).then(function (response) {
+    }).then(function(response) {
         for (let i = 0; i < response.length; i++) {
-            $("#crimeDisplay").append("Type: " + response[i].type + "<br>");
-            $("#crimeDisplay").append("Borough: " + response[i].borough + "<br>");
-            $("#crimeDisplay").append("Location: " + response[i].location + "<br>");
-            $("#crimeDisplay").append("Date: " + response[i].date + "<br><br>");
+            $("#crimeDisplay").append("<span> Type: </span> <span  style='font-weight: bold'>" + response[i].type + "</span><br>");
+            $("#crimeDisplay").append("<span> Borough: </span> <span  style='font-weight: bold'>" + response[i].borough + "</span><br>");
+            $("#crimeDisplay").append("<span> Location: </span> <span  style='font-weight: bold'>" + response[i].location + "</span><br>");
+            var convertedMostRecentDate = moment(response[i].createdAt).format("YYYY/MM/DD hh:mm A");
+            // convertedMostRecentDate = parseInt(convertedDate);
+            $("#crimeDisplay").append("<span> Reported Date: </span> <span  style='font-weight: bold'>" + convertedMostRecentDate + "</span><br><hr><br>");
         };
         console.log(response);
     });
-}
+};
 
 // ALL CODES GOES INSIDE OF THIS .ready() FUNCTION::::::::::
-$(document).ready(function () {
+$(document).ready(function() {
 
     // calling global function to get most recent crimes when page loads
     getMostRecent();
@@ -125,7 +127,7 @@ $(document).ready(function () {
     // CLICK HANDLERS
     // ==========================================================
     // .on("click") function associated with the Search Button
-    $(document).on("click", "#findButton", function (event) {
+    $(document).on("click", "#findButton", function(event) {
         event.preventDefault();
 
         var findLocation = $("#findLocation").val();
@@ -223,9 +225,9 @@ $(document).ready(function () {
     });
 
 
-    $(document.body).on("click", "#reportButton", function (event) {
+    $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
-        
+
         // update the most recent crimes display after user submits a new one
         getMostRecent();
 
@@ -264,10 +266,11 @@ $(document).ready(function () {
 
 
         $("#pac-input").val("");
+        location.reload();
     });
 
 
-    $(document.body).on("click", "#findAllButton", function (event) {
+    $(document.body).on("click", "#findAllButton", function(event) {
 
         var findCategory = $("#findCategory").val();
 
