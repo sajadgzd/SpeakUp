@@ -64,22 +64,29 @@ $(document).ready(function() {
             var markerPopulate = response[i].location;
             var boroughChoice = response[i].borough
             console.log("TESTTTTT LOCATION", response[i].location);
-            if (boroughChoice === "Bronx") {
-                function geocodeAddress(resultsMap = map) {
+            // var geocoder = new google.maps.Geocoder();
 
-                    geocoder.geocode({
-                        'address': markerPopulate
-                    }, function(results, status) {
-                        if (status === 'OK') {
-                            resultsMap.setCenter(results[0].geometry.location);
-                            var marker = new google.maps.Marker({
-                                map: resultsMap,
-                                position: results[0].geometry.location
-                            });
-                        }
-                    });
-                }
-            }
+            // function geocodeAddress(geocoder, resultsMap) {
+            //     var address = markerPopulate;
+            //     geocoder.geocode({ 'address': address }, function(results, status) {
+            //         if (status === 'OK') {
+            //             resultsMap.setCenter(results[0].geometry.location);
+            //             var marker = new google.maps.Marker({
+            //                 map: resultsMap,
+            //                 position: results[0].geometry.location
+            //             });
+            //             console.log(marker)
+            //         } else {
+            //             alert('Geocode was not successful for the following reason: ' + status);
+            //         }
+
+            //     });
+            // }
+
+            // geocodeAddress(geocoder);
+
+
+
         }
 
 
