@@ -18,6 +18,10 @@ h2 {
     text-align: center;
 }
 
+h5 {
+    margin: 0;
+}
+
 
 /* for our two columns */
 
@@ -218,7 +222,9 @@ input {
     width: 400px;
 }
 
+
 /* media query to remove recent crime on smaller screens */
+
 @media screen and (max-width: 768px) {
     #recentCrime {
         display: none;
