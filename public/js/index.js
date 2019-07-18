@@ -110,19 +110,19 @@ $(document).ready(function() {
         if (findLocation === "Brooklyn") {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: 40.650002,
-                    lng: -73.949997
+                    lat: 40.6392847,
+                    lng: -73.9772993
                 },
-                zoom: 13,
+                zoom: 12,
                 mapTypeId: 'roadmap'
             });
         } else if (findLocation === "Bronx") {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: 40.82732,
-                    lng: -73.92357
+                    lat: 40.8475416,
+                    lng: -73.8981581
                 },
-                zoom: 13,
+                zoom: 12.5,
                 mapTypeId: 'roadmap'
             });
 
@@ -132,17 +132,17 @@ $(document).ready(function() {
                     lat: 40.758896,
                     lng: -73.985130
                 },
-                zoom: 13,
+                zoom: 12,
                 mapTypeId: 'roadmap'
             });
 
         } else if (findLocation === "Queens") {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: 40.742054,
-                    lng: -73.769417
+                    lat: 40.7315989,
+                    lng: -73.8794842
                 },
-                zoom: 13,
+                zoom: 12,
                 mapTypeId: 'roadmap'
             });
 
@@ -152,7 +152,7 @@ $(document).ready(function() {
                     lat: 40.579021,
                     lng: -74.151535
                 },
-                zoom: 13,
+                zoom: 12,
                 mapTypeId: 'roadmap'
             });
 
