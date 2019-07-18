@@ -37,8 +37,8 @@
         <hr class="my-4">
         <p>This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p>
         <a class="btn btn-dark btn-md" href="#" role="button">Learn more</a>
-        <a class="btn btn-dark btn-md" href="#" role="button">View Sexual Assault Crimes</a>
-        <a class="btn btn-dark btn-md" href="#" role="button">View Crimes by Borough</a>
+        <a class="btn btn-dark btn-md" href="#findForm" role="button">View Crimes</a>
+        <a class="btn btn-dark btn-md" href="#reportForm" role="button">Report Crimes</a>
     </div>
 
     <div class="modal-body row">
@@ -53,11 +53,12 @@
         </div>
         <div id="forms" class="col-md-6">
             <!-- Form for looking for crimes in a given area/time -->
-            <h2>Find</h2>
+
             <!-- Input for selecting borough to search in -->
-            <div class="find">
+            <div id="findForm">
+                <h2>Find</h2>
                 <form>
-                    <div class="form-group">
+                    <div id="form-group">
                         <label for="findLocation">Crime Category:</label>
                         <select class="form-control" id="findCategory">
                         <option value="SexualAssault">Sexual Assault</option>
@@ -107,7 +108,7 @@
 
 
             <!-- Form for submitting a report -->
-            <div class="Report">
+            <div id="reportForm">
                 <h2>Report</h2>
 
                 <form>
