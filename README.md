@@ -30,10 +30,13 @@ A Node based app which primarily aims to give a voice to the minorities and wome
     * Deployed Heroku database 
  * Node.js | JavaScript
     * Ajax calls
+ * Google Maps API
  * jQuery
+ * Moment.js
  * HTML
  * CSS
  * Bootstrap
+ * Materialize
 
 <a name="installation"></a>
 ## Local Installation
