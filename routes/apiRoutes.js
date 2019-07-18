@@ -1,7 +1,7 @@
 var db = require("../models");
 var moment = require("moment");
 // console.log(moment());
-
+var Sequelize = require("sequelize");
 module.exports = function(app) {
     // Get all examples
     app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
@@ -19,8 +19,8 @@ module.exports = function(app) {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
                     date: {
-                        $lte: EndconvertedDate,
-                        $gte: StartconvertedDate
+                        [Sequelize.Op.lte]: EndconvertedDate,
+                        [Sequelize.Op.gte]: StartconvertedDate
                     }
                 }
             }).then(function(dbSexAssault) {
@@ -44,8 +44,15 @@ module.exports = function(app) {
 
     // Create a new example
     app.post("/api/new/sexualAssault", function(req, res) {
-
-        db.SexAssualtCrime.create(req.body).then(function(dbSexAssault) {
+        var object = {
+            borough: req.body.borough,
+            date: parseInt(req.body.date),
+            location: req.body.location,
+            reported: req.body.reported,
+            type: req.body.type,
+            description: req.body.description
+        }
+        db.SexAssualtCrime.create(object).then(function(dbSexAssault) {
             res.json(dbSexAssault);
         });
     });

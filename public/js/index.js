@@ -61,13 +61,8 @@ $(document).ready(function() {
 
     function updateMap(response) {
 
-        // update the the map so it zooms in on the selected borough
-        if (findLocation === "Brooklyn") {
-            console.log("Brooklyn")
-        }
-
         console.log(response);
-        console.log(findLocation.value)
+        // console.log(findLocation.value)
     }
 
     function addMarkerToMap(response) {
@@ -186,7 +181,7 @@ $(document).ready(function() {
         // console.log(reportCategory);
         var convertedDate = moment(reportDate + " " + reportTime).format("X");
         convertedDate = parseInt(convertedDate);
-
+        console.log(convertedDate);
 
         var newCrime = {
                 location: reportLocation,
