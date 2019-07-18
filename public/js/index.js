@@ -5,6 +5,7 @@
 var latitude;
 var longitude;
 
+
 function ipLookUp() {
     $.ajax('http://ip-api.com/json')
         .then(
@@ -85,13 +86,33 @@ $(document).ready(function () {
 
     function updateMap(response) {
 
-        // update the the map so it zooms in on the selected borough
-        if (findLocation === "Brooklyn") {
-            console.log("Brooklyn")
+        // update the the map so it shows up the markers on the selected borough
+        for (let i = 0; i < response.length; i++) {
+            var markerPopulate = response[i].location;
+            var boroughChoice = response[i].borough
+            console.log("TESTTTTT LOCATION", response[i].location);
+            if (boroughChoice === "Bronx") {
+                function geocodeAddress(resultsMap = map) {
+
+                    geocoder.geocode({
+                        'address': markerPopulate
+                    }, function(results, status) {
+                        if (status === 'OK') {
+                            resultsMap.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: resultsMap,
+                                position: results[0].geometry.location
+                            });
+                        }
+                    });
+                }
+            }
         }
 
+
         console.log(response);
-        console.log(findLocation.value)
+
+
     }
 
     function addMarkerToMap(response) {
@@ -129,7 +150,18 @@ $(document).ready(function () {
             method: "GET",
 
         }).then(updateMap);
+        console.log(startDate);
+        console.log(endDate);
+        console.log(findStartTime)
+        console.log(findEndTime)
 
+        $.ajax({
+            url: "/api/borough",
+            method: "GET",
+
+        }).then(function(dbSexAssault) {
+            console.log(dbSexAssault)
+        });
 
 
         if (findLocation === "Brooklyn") {
@@ -205,24 +237,29 @@ $(document).ready(function () {
         var reportDescription = $("#reportDescription").val();
         var isReported = $("#isReported").is(":checked");
 
-        console.log(reportBorough);
+
+        // console.log(reportBorough);
         // console.log(isReported);
         // console.log(reportDescription);
         // console.log(reportTime);
         // console.log(reportDate);
         // console.log(reportLocation);
         // console.log(reportCategory);
-
+        var convertedDate = moment(reportDate + " " + reportTime).format("X");
+        convertedDate = parseInt(convertedDate);
+        console.log(convertedDate);
 
         var newCrime = {
-            location: reportLocation,
-            borough: reportBorough,
-            date: reportDate + "  " + reportTime,
-            type: reportCategory,
-            description: reportDescription,
-            reported: isReported
-        }
-        // Make the POST AJAX request to the API.
+
+                location: reportLocation,
+                borough: reportBorough,
+                date: convertedDate,
+                type: reportCategory,
+                description: reportDescription,
+                reported: isReported
+            }
+            // Make the POST AJAX request to the API.
+
         $.post("/api/new/" + reportCategory, newCrime, addMarkerToMap);
 
 
