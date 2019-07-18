@@ -3,6 +3,20 @@ var moment = require("moment");
 // console.log(moment());
 var Sequelize = require("sequelize");
 module.exports = function(app) {
+    
+
+    // get the most recent crime by using the createdAt attribute in the db
+    // this route needs to be placed first, do not change order of the routes here
+    // take the 
+    app.get("/api/mostRecent", function(req, res) {
+        db.SexAssualtCrime.findAll({
+            limit: 3,
+            order: [ ['createdAt', 'DESC']]
+        }).then(function(recent) {
+            res.json(recent);
+        });
+    });
+
     // Get all examples
     app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
         function(req, res) {
