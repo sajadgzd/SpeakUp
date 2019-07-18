@@ -100,7 +100,10 @@ $(document).ready(function() {
             method: "GET",
 
         }).then(updateMap);
-
+        console.log(startDate);
+        console.log(endDate);
+        console.log(findStartTime)
+        console.log(findEndTime)
 
 
         if (findLocation === "Brooklyn") {
@@ -171,6 +174,7 @@ $(document).ready(function() {
         var reportTime = $("#reportTime").val();
         var reportDescription = $("#reportDescription").val();
         var isReported = $("#isReported").is(":checked");
+
 
         // console.log(reportBorough);
         // console.log(isReported);

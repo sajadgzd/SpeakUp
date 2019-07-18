@@ -6,6 +6,7 @@ module.exports = function(app) {
     // Get all examples
     app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
         function(req, res) {
+
             var StartconvertedDate = moment(req.params.startDate + " " + req.params.findStartTime).format("X");
             StartconvertedDate = parseInt(StartconvertedDate);
             var EndconvertedDate = moment(req.params.endDate + " " + req.params.findEndTime).format("X");
