@@ -19,10 +19,12 @@ module.exports = function(app) {
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
+
                     date: {
                         [Sequelize.Op.lte]: EndconvertedDate,
                         [Sequelize.Op.gte]: StartconvertedDate
                     }
+
                 }
             }).then(function(dbSexAssault) {
                 // console.log(obj);
@@ -57,5 +59,7 @@ module.exports = function(app) {
             res.json(dbSexAssault);
         });
     });
+
+
 
 };

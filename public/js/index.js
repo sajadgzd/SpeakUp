@@ -61,8 +61,33 @@ $(document).ready(function() {
 
     function updateMap(response) {
 
+        // update the the map so it shows up the markers on the selected borough
+        for (let i = 0; i < response.length; i++) {
+            var markerPopulate = response[i].location;
+            var boroughChoice = response[i].borough
+            console.log("TESTTTTT LOCATION", response[i].location);
+            if (boroughChoice === "Bronx") {
+                function geocodeAddress(resultsMap = map) {
+
+                    geocoder.geocode({
+                        'address': markerPopulate
+                    }, function(results, status) {
+                        if (status === 'OK') {
+                            resultsMap.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: resultsMap,
+                                position: results[0].geometry.location
+                            });
+                        }
+                    });
+                }
+            }
+        }
+
+
         console.log(response);
-        // console.log(findLocation.value)
+
+
     }
 
     function addMarkerToMap(response) {
@@ -104,6 +129,14 @@ $(document).ready(function() {
         console.log(endDate);
         console.log(findStartTime)
         console.log(findEndTime)
+
+        $.ajax({
+            url: "/api/borough",
+            method: "GET",
+
+        }).then(function(dbSexAssault) {
+            console.log(dbSexAssault)
+        });
 
 
         if (findLocation === "Brooklyn") {
