@@ -10,10 +10,10 @@ module.exports = function(app) {
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
-                    // date: {
-                    //     $gte: req.params.startDate + "T" + req.params.findStartTime + "Z",
-                    //     $lte: req.params.endDate + "T" + req.params.findEndTime + "Z"
-                    // }
+                    date: {
+                        $gte: req.params.startDate + "T" + req.params.findStartTime + "Z",
+                        $lte: req.params.endDate + "T" + req.params.findEndTime + "Z"
+                    }
                 }
             }).then(function(dbSexAssault) {
                 res.json(dbSexAssault);

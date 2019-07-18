@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         borough: DataTypes.STRING,
         location: DataTypes.STRING,
-        date: DataTypes.DATE,
+        date: DataTypes.STRING,
         reported: DataTypes.BOOLEAN,
         description: DataTypes.TEXT,
     });
