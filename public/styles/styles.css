@@ -10,6 +10,12 @@ body {
     background-attachment: fixed;
     background-position: bottom;
     background-size: cover;
+    color: white;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
 }
 
 
@@ -52,7 +58,7 @@ body {
 #forms {
     height: 920px;
     color: rgb(255, 253, 253);
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
     float: left;
     border-radius: 20px;
 }
@@ -64,6 +70,10 @@ body {
     float: right;
     margin-top: 5px;
     border-radius: 20px;
+}
+
+input {
+    color: white;
 }
 
 .modal-body {
