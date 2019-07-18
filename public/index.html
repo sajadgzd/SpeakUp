@@ -22,13 +22,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
 
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
 
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!-- moment CDN -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
@@ -40,10 +42,12 @@
 <body>
     <div class="jumbotron text-center" style="height: auto;">
         <h1 class="display-4">SPEAK UP!</h1>
-        <p class="lead">We are aiming to give a voice to the minorities and women to speak up and report crimes which are often not reported.</p>
+        <p class="lead">We are aiming to give a voice to the minorities and women to speak up and report crimes which
+            are often not reported.</p>
         <hr class="my-3">
         <!-- <p>This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p> -->
-        <a class="btn btn-secondary btn-md" href="https://github.com/sajadgzd/project-2" role="button" target="_blank">Learn more</a>
+        <a class="btn btn-secondary btn-md" href="https://github.com/sajadgzd/project-2" role="button"
+            target="_blank">Learn more</a>
         <a class="btn btn-secondary btn-md" href="#findForm" role="button">View Crimes</a>
         <a class="btn btn-secondary btn-md" href="#reportForm" role="button">Report Crimes</a>
     </div>
@@ -69,8 +73,8 @@
                     <div id="form-group">
                         <label for="findLocation">Crime Category:</label>
                         <select class="form-control" id="findCategory">
-                        <option value="SexualAssault">Sexual Assault</option>
-                        <option value="HateCrime">Hate Crime</option>
+                            <option value="SexualAssault">Sexual Assault</option>
+                            <option value="HateCrime">Hate Crime</option>
 
                         </select>
                     </div>
@@ -78,38 +82,44 @@
                     <div class="form-group">
                         <label for="findLocation">Location:</label>
                         <select class="form-control" id="findLocation">
-                        <option value="Bronx">Bronx</option>
-                        <option value="Brooklyn">Brooklyn</option>
-                        <option value="Manhattan">Manhattan</option>
-                        <option value="Queens">Queens</option>
-                        <option value="StatenIsland">Staten Island</option>
-                    </select>
+                            <option value="Bronx">Bronx</option>
+                            <option value="Brooklyn">Brooklyn</option>
+                            <option value="Manhattan">Manhattan</option>
+                            <option value="Queens">Queens</option>
+                            <option value="StatenIsland">Staten Island</option>
+                        </select>
 
                     </div>
 
 
 
                     <!-- Date inputs for finding reports within a given time frame -->
-                    <div class="input-field col s6">From:
-                        <label for="startDate"></label>
-                        <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+
+                    <div class="input-field col s6">
+                        <label for="startDate">From:</label>
+                        <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01"
+                            max="2018-12-31">
                     </div>
-                    <div class="input-field col s6">To:
-                        <label for="endDate"></label>
-                        <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                    <div class="input-field col s6">
+                        <label for="endDate">To:</label>
+                        <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01"
+                            max="2018-12-31">
+
                         <br>
                     </div>
                     <!-- Time inputs with two 24 hour times. default range is set to all day -->
                     <div class="input-field col s6">Start time
                         <label for="findStartTime"></label>
-                        <input type="time" id="findStartTime" name="findStartTime" required>
+                        <input type="time" id="findStartTime" name="findStartTime" value="00:01">
                     </div>
                     <div class="input-field col s6">End time
                         <label for="findEndTime"></label>
-                        <input type="time" id="findEndTime" name="findEndTime" required>
+                        <input type="time" id="findEndTime" name="findEndTime" value="23:59">
                     </div>
 
-                    <input type="submit" id="findButton" class="btn btn-secondary btn-sm"> | <span style="color:red">for debugging purposes to get all crimes of the type</span> <input type="submit" id="findAllButton" class="btn btn-secondary btn-sm">
+                    <input type="submit" id="findButton" class="btn btn-secondary btn-sm"> | <span style="color:red">for
+                        debugging purposes to get all crimes of the type</span> <input type="submit" id="findAllButton"
+                        class="btn btn-secondary btn-sm">
 
 
                 </form>
@@ -143,23 +153,26 @@
                     </div>
 
                     <!-- location input using Google Maps search bar -->
+                    <!-- TODO: add current location as default value -->
                     <div class="input-field col s12">
-                        <div class="locationInput">Location:
-                            <input id="pac-input" class="controls" type="text" placeholder="Location of Crime">
+                        <div class="locationInput">Location <sup>(required)</sup>
+                            <input id="pac-input" class="controls" type="text" placeholder="Location of Crime"
+                            >
                         </div>
                     </div>
                     <br>
 
                     <!-- specific date to report crime -->
                     <div class="input-field col s6">
-                        Date: <input type="date" id="reportDate" name="reportDate" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                        Date: <input type="date" id="reportDate" name="reportDate" value="2018-07-22" min="2015-01-01"
+                            max="2018-12-31">
                     </div>
                     <br>
 
                     <!-- Specific time to give to reported crime -->
                     <div class="input-field col s6"> Time of Incident:
                         <label for="reportTime"></label>
-                        <input type="time" id="reportTime" name="reportTime" required>
+                        <input type="time" id="reportTime" name="reportTime" value="00:00">
                     </div>
 
                     <!-- optional description area -->
@@ -173,8 +186,10 @@
 
                     <form class="col s12">
                         <div class="input-field col s12">
+
                             <textarea id="reportDescription" class="materialize-textarea" style="color: white;"></textarea>
-                            <label for="textarea1">Textarea</label>
+                            <label for="textarea1">Description (optional)</label>
+
                         </div>
                     </form>
 
@@ -184,7 +199,7 @@
                         <label for="isReported">
                             <input type="checkbox" id="isReported">
                             <span>Was the Crime Reported?</span>
-                       
+
                         </label>
                     </p>
 
@@ -215,6 +230,7 @@
         // parameter when you first load the API. For example:
         var map;
         var geocoder;
+
         function initAutocomplete() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
@@ -229,25 +245,25 @@
             var searchBox = new google.maps.places.SearchBox(input);
             // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
             // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function() {
+            map.addListener('bounds_changed', function () {
                 searchBox.setBounds(map.getBounds());
             });
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
-            searchBox.addListener('places_changed', function() {
+            searchBox.addListener('places_changed', function () {
                 var places = searchBox.getPlaces();
                 if (places.length == 0) {
                     return;
                 }
                 // Clear out the old markers.
-                markers.forEach(function(marker) {
+                markers.forEach(function (marker) {
                     marker.setMap(null);
                 });
                 markers = [];
                 // For each place, get the icon, name and location.
                 var bounds = new google.maps.LatLngBounds();
-                places.forEach(function(place) {
+                places.forEach(function (place) {
                     if (!place.geometry) {
                         console.log("Returned place contains no geometry");
                         return;
@@ -277,7 +293,9 @@
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U&libraries=places&callback=initAutocomplete" async defer></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
     <script type="text/javascript" src="./js/index.js"></script>
 
