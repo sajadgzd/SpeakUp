@@ -43,6 +43,8 @@ h2 {
 
 #mapContainer {
     height: 500px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #map {
@@ -51,7 +53,7 @@ h2 {
     height: 500px;
     /* border: solid; */
     /* border-color: black; */
-    border-radius: 20px;
+    border-radius: 5px;
     /* left: 80px; */
 }
 
@@ -60,7 +62,7 @@ h2 {
     color: rgb(255, 253, 253);
     /* background-color: rgba(0, 0, 0, 0.5); */
     float: left;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 #recentCrime {
@@ -69,7 +71,7 @@ h2 {
     background-color: rgba(0, 0, 0, 0.5);
     float: right;
     margin-top: 5px;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 input {

@@ -61,12 +61,12 @@ function getMostRecent() {
         method: "GET"
     }).then(function(response) {
         for (let i = 0; i < response.length; i++) {
-            $("#crimeDisplay").append("<span> Type: </span> <span  style='font-weight: bold'>" + response[i].type + "</span><br>");
-            $("#crimeDisplay").append("<span> Borough: </span> <span  style='font-weight: bold'>" + response[i].borough + "</span><br>");
-            $("#crimeDisplay").append("<span> Location: </span> <span  style='font-weight: bold'>" + response[i].location + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Type: </span> <span>" + response[i].type + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Borough: </span> <span>" + response[i].borough + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Location: </span> <span>" + response[i].location + "</span><br>");
             var convertedMostRecentDate = moment(response[i].createdAt).format("YYYY/MM/DD hh:mm A");
             // convertedMostRecentDate = parseInt(convertedDate);
-            $("#crimeDisplay").append("<span> Reported Date: </span> <span  style='font-weight: bold'>" + convertedMostRecentDate + "</span><br><hr><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Reported Date: </span> <span>" + convertedMostRecentDate + "</span><br><hr><br>");
         };
         console.log(response);
     });
