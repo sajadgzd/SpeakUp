@@ -7,14 +7,13 @@ module.exports = function(app) {
 
     // get the most recent crime by using the createdAt attribute in the db
     // this route needs to be placed first, do not change order of the routes here
+    // take the 
     app.get("/api/mostRecent", function(req, res) {
-        console.log("Hit")
         db.SexAssualtCrime.findAll({
-            limit: 1,
-            order: [ ['createdAt', 'ASC']]
+            limit: 3,
+            order: [ ['createdAt', 'DESC']]
         }).then(function(recent) {
-            console.log("first");
-            res.json(recent[0]);
+            res.json(recent);
         });
     });
 

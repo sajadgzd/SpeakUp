@@ -58,14 +58,19 @@ function getMostRecent() {
     $.ajax({
         url: "/api/mostRecent",
         method: "GET"
-    }).then(function(response) {
-        $("#crimeDisplay").append(response);
+    }).then(function (response) {
+        for (let i = 0; i < response.length; i++) {
+            $("#crimeDisplay").append("Type: " + response[i].type + "<br>");
+            $("#crimeDisplay").append("Borough: " + response[i].borough + "<br>");
+            $("#crimeDisplay").append("Location: " + response[i].location + "<br>");
+            $("#crimeDisplay").append("Date: " + response[i].date + "<br><br>");
+        };
         console.log(response);
     });
 }
 
 // ALL CODES GOES INSIDE OF THIS .ready() FUNCTION::::::::::
-$(document).ready(function() {
+$(document).ready(function () {
 
     // calling global function to get most recent crimes when page loads
     getMostRecent();
@@ -99,7 +104,7 @@ $(document).ready(function() {
     // CLICK HANDLERS
     // ==========================================================
     // .on("click") function associated with the Search Button
-    $(document).on("click", "#findButton", function(event) {
+    $(document).on("click", "#findButton", function (event) {
         event.preventDefault();
 
         var findLocation = $("#findLocation").val();
@@ -186,8 +191,12 @@ $(document).ready(function() {
     });
 
 
-    $(document.body).on("click", "#reportButton", function(event) {
+    $(document.body).on("click", "#reportButton", function (event) {
         event.preventDefault();
+        
+        // update the most recent crimes display after user submits a new one
+        getMostRecent();
+
         var reportCategory = $("#reportCategory").val();
         var reportLocation = $("#pac-input").val();
         var reportBorough = $("#reportLocation").val();
@@ -206,14 +215,14 @@ $(document).ready(function() {
 
 
         var newCrime = {
-                location: reportLocation,
-                borough: reportBorough,
-                date: reportDate + "  " + reportTime,
-                type: reportCategory,
-                description: reportDescription,
-                reported: isReported
-            }
-            // Make the POST AJAX request to the API.
+            location: reportLocation,
+            borough: reportBorough,
+            date: reportDate + "  " + reportTime,
+            type: reportCategory,
+            description: reportDescription,
+            reported: isReported
+        }
+        // Make the POST AJAX request to the API.
         $.post("/api/new/" + reportCategory, newCrime, addMarkerToMap);
 
 
@@ -221,7 +230,7 @@ $(document).ready(function() {
     });
 
 
-    $(document.body).on("click", "#findAllButton", function(event) {
+    $(document.body).on("click", "#findAllButton", function (event) {
 
         var findCategory = $("#findCategory").val();
 
