@@ -63,7 +63,7 @@
 
             <!-- Input for selecting borough to search in -->
             <div id="findForm">
-                <h2>Find</h2>
+                <h5>Find</h5>
                 <form>
                     <div id="form-group">
                         <label for="findLocation">Crime Category:</label>
@@ -99,12 +99,12 @@
                         <br>
                     </div>
                     <!-- Time inputs with two 24 hour times. default range is set to all day -->
-                    <div class="input-field col s6">
-                        <label for="findStartTime">Start time</label>
+                    <div class="input-field col s6">Start time
+                        <label for="findStartTime"></label>
                         <input type="time" id="findStartTime" name="findStartTime" required>
                     </div>
-                    <div class="input-field col s6">
-                        <label for="findEndTime">End time</label>
+                    <div class="input-field col s6">End time
+                        <label for="findEndTime"></label>
                         <input type="time" id="findEndTime" name="findEndTime" required>
                     </div>
 
@@ -120,7 +120,7 @@
             <hr style="color: white">
             <!-- Form for submitting a report -->
             <div id="reportForm">
-                <h2>Report</h2>
+                <h5>Report</h5>
                 <form>
                     <!-- input for report Category -->
                     <div class="form-group">
@@ -142,7 +142,7 @@
                     </div>
 
                     <!-- location input using Google Maps search bar -->
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <div class="locationInput">Location:
                             <input id="pac-input" class="controls" type="text" placeholder="Location of Crime">
                         </div>
@@ -156,24 +156,37 @@
                     <br>
 
                     <!-- Specific time to give to reported crime -->
-                    <div class="input-field col s6">
-                        <label for="reportTime">Time of Incident:</label>
+                    <div class="input-field col s6"> Time of Incident:
+                        <label for="reportTime"></label>
                         <input type="time" id="reportTime" name="reportTime" required>
                     </div>
 
                     <!-- optional description area -->
-                    <div class="form-group">
-                        <div class="input-field col s12">
+                    <!-- <div class="form-group col s12">
+                        <div class="input-field ">
                             <label for="reportDescription">Description:</label>
                             <textarea class="form-control" id="reportDescription" rows="3"></textarea>
                         </div>
-                    </div>
+                    </div> -->
+
+
+                    <form class="col s12">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea" style="color: white;"></textarea>
+                            <label for="textarea1">Textarea</label>
+                        </div>
+                    </form>
+
 
                     <!-- Default checked -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="isReported">
-                        <label class="custom-control-label" for="isReported">Was the Crime Reported?</label>
-                    </div>
+                    <p>
+                        <label for="isReported">
+                            <input type="checkbox" id="isReported">
+                            <span>Was the Crime Reported?</span>
+                       
+                        </label>
+                    </p>
+
 
                     <input type="submit" id="reportButton" class="btn btn-secondary btn-sm">
                 </form>

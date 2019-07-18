@@ -99,8 +99,8 @@ input {
 }
 
 #crimeDisplay {
-    background-color: white;
-    color: #333;
+    background-color: transparent;
+    color: white;
     border-radius: 10px;
     height: 350px
 }
