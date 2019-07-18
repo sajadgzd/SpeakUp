@@ -4,7 +4,8 @@
 
 body {
     background-color: rgb(2, 17, 49);
-    background-image: url("../images/ho.jpg");
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/ho.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom;
@@ -44,29 +45,25 @@ body {
     height: 500px;
     border: solid;
     border-color: black;
+    border-radius: 20px;
     /* left: 80px; */
-}
-
-.page-header {
-    /* position: relative;   */
-    width: 100%;
-    color: blue;
-    background-color: green;
-    text-align: center;
 }
 
 #forms {
     height: 920px;
-    color: black;
-    background-color: silver;
+    color: rgb(255, 253, 253);
+    background-color: rgba(0, 0, 0, 0.5);
     float: left;
+    border-radius: 20px;
 }
 
 #recentCrime {
     height: 415px;
-    background-color: silver;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     float: right;
     margin-top: 5px;
+    border-radius: 20px;
 }
 
 .modal-body {
@@ -92,7 +89,9 @@ body {
 }
 
 #crimeDisplay {
-    background-color: black;
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
     height: 350px
 }
 
