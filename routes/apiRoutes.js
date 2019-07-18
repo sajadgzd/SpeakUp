@@ -25,7 +25,7 @@ module.exports = function(app) {
                 }
             }).then(function(dbSexAssault) {
                 // console.log(obj);
-                res.json([obj, dbSexAssault]);
+                res.json(dbSexAssault);
             });
         });
 
