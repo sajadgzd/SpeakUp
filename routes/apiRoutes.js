@@ -61,7 +61,14 @@ module.exports = function(app) {
             } else if (req.params.findCategory === "HateCrime") {
                 db.hateCrime.findAll({
                     where: {
-                        type: req.params.findCategory
+                        type: req.params.findCategory,
+                        borough: req.params.findLocation,
+
+                        date: {
+                            [Sequelize.Op.lte]: EndconvertedDate,
+                            [Sequelize.Op.gte]: StartconvertedDate
+                        }
+
                     }
                 }).then(function(dbhateCrime) {
                     res.json(dbhateCrime);

@@ -105,13 +105,14 @@ $(document).ready(function() {
 
 
     // Helper Function to empty out the forms if necessary later on
-    function clear() {
-        $("#").empty();
-        $("#").empty();
-    }
+    // function clear() {
+    //     $("#").empty();
+    //     $("#").empty();
+    // }
 
 
     function updateMap(response) {
+        console.log(response);
 
         // update the the map so it shows up the markers on the selected borough
         for (let i = 0; i < response.length; i++) {
@@ -137,14 +138,12 @@ $(document).ready(function() {
         }
 
 
-        console.log(response);
-
-
     }
 
     function addMarkerToMap(response) {
         // add markers to the map for the new crime reported
         console.log(response);
+        // location.reload();
 
     }
 
@@ -177,18 +176,18 @@ $(document).ready(function() {
             method: "GET",
 
         }).then(updateMap);
-        console.log(startDate);
-        console.log(endDate);
-        console.log(findStartTime)
-        console.log(findEndTime)
+        // console.log(startDate);
+        // console.log(endDate);
+        // console.log(findStartTime)
+        // console.log(findEndTime)
 
-        $.ajax({
-            url: "/api/borough",
-            method: "GET",
+        // $.ajax({
+        //     url: "/api/borough",
+        //     method: "GET",
 
-        }).then(function(dbSexAssault) {
-            console.log(dbSexAssault)
-        });
+        // }).then(function(dbSexAssault) {
+        //     console.log(dbSexAssault)
+        // });
 
 
         if (findLocation === "Brooklyn") {
@@ -244,9 +243,6 @@ $(document).ready(function() {
 
 
 
-
-        // $("#findLocation").val("");
-
     });
 
 
@@ -291,7 +287,7 @@ $(document).ready(function() {
 
 
         $("#pac-input").val("");
-        location.reload();
+
     });
 
 
@@ -303,7 +299,9 @@ $(document).ready(function() {
             url: "/api/" + findCategory,
             method: "GET",
 
-        }).then(updateMap);
+        }).then(function(response) {
+            console.log(response);
+        });
 
 
 
