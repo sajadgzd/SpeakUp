@@ -51,22 +51,44 @@ if ("geolocation" in navigator) {
 
 // global function that will be used to post the most recent crimes whenever the page loads
 // or a user adds a crime
-function getMostRecent() {
+function getMostRecentSecualAssault() {
     // first clear out the div
     $("#crimeDisplay").empty();
 
     //AJAX call to route that grabs the most recent crime
     $.ajax({
-        url: "/api/mostRecent",
+        url: "/api/mostRecentSexualAssault",
         method: "GET"
     }).then(function(response) {
         for (let i = 0; i < response.length; i++) {
-            $("#crimeDisplay").append("<span> Type: </span> <span  style='font-weight: bold'>" + response[i].type + "</span><br>");
-            $("#crimeDisplay").append("<span> Borough: </span> <span  style='font-weight: bold'>" + response[i].borough + "</span><br>");
-            $("#crimeDisplay").append("<span> Location: </span> <span  style='font-weight: bold'>" + response[i].location + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Type: </span> <span>" + response[i].type + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Borough: </span> <span>" + response[i].borough + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Location: </span> <span>" + response[i].location + "</span><br>");
             var convertedMostRecentDate = moment(response[i].createdAt).format("YYYY/MM/DD hh:mm A");
             // convertedMostRecentDate = parseInt(convertedDate);
-            $("#crimeDisplay").append("<span> Reported Date: </span> <span  style='font-weight: bold'>" + convertedMostRecentDate + "</span><br><hr><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Reported Date: </span> <span>" + convertedMostRecentDate + "</span><br><hr><br>");
+        };
+        console.log(response);
+        // getMostRecentHateCrime();
+    });
+};
+
+function getMostRecentHateCrime() {
+    // first clear out the div
+    // $("#crimeDisplay").empty();
+
+    //AJAX call to route that grabs the most recent crime
+    $.ajax({
+        url: "/api/mostRecentHateCrime",
+        method: "GET"
+    }).then(function(response) {
+        for (let i = 0; i < response.length; i++) {
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Type: </span> <span>" + response[i].type + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Borough: </span> <span>" + response[i].borough + "</span><br>");
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Location: </span> <span>" + response[i].location + "</span><br>");
+            var convertedMostRecentDate = moment(response[i].createdAt).format("YYYY/MM/DD hh:mm A");
+            // convertedMostRecentDate = parseInt(convertedDate);
+            $("#crimeDisplay").append("<span style='font-weight: bold'> Reported Date: </span> <span>" + convertedMostRecentDate + "</span><br><hr><br>");
         };
         console.log(response);
     });
@@ -76,7 +98,10 @@ function getMostRecent() {
 $(document).ready(function() {
 
     // calling global function to get most recent crimes when page loads
-    getMostRecent();
+    getMostRecentSecualAssault();
+    getMostRecentHateCrime();
+
+
 
 
     // Helper Function to empty out the forms if necessary later on
@@ -229,7 +254,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         // update the most recent crimes display after user submits a new one
-        getMostRecent();
+        getMostRecentSecualAssault();
 
         var reportCategory = $("#reportCategory").val();
         var reportLocation = $("#pac-input").val();
