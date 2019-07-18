@@ -1,18 +1,21 @@
 var db = require("../models");
-// var moment = require("moment");
-// console.log(moment());
+var moment = require("moment")
+    // var moment = require("moment");
+    // console.log(moment());
 
 module.exports = function(app) {
     // Get all examples
     app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
         function(req, res) {
+            moment.unix(req.params.startDate)
+
             db.SexAssualtCrime.findAll({
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
                     date: {
-                        $gte: req.params.startDate + "T" + req.params.findStartTime + "Z",
-                        $lte: req.params.endDate + "T" + req.params.findEndTime + "Z"
+                        $gte: 20180710,
+                        $lte: 13421324
                     }
                 }
             }).then(function(dbSexAssault) {

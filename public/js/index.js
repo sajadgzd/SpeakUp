@@ -104,7 +104,10 @@ $(document).ready(function() {
             method: "GET",
 
         }).then(updateMap);
-
+        console.log(startDate);
+        console.log(endDate);
+        console.log(findStartTime)
+        console.log(findEndTime)
 
 
         if (findLocation === "Brooklyn") {
@@ -177,6 +180,7 @@ $(document).ready(function() {
         var isReported = $("#isReported").is(":checked");
 
         console.log(reportBorough);
+
         // console.log(isReported);
         // console.log(reportDescription);
         // console.log(reportTime);
