@@ -13,10 +13,10 @@ module.exports = function(app) {
                 where: {
                     type: req.params.findCategory,
                     borough: req.params.findLocation,
-                    date: {
-                        $gte: 20180710,
-                        $lte: 13421324
-                    }
+                    // date: {
+                    //     $gte: 20180710,
+                    //     $lte: 13421324
+                    // }
                 }
             }).then(function(dbSexAssault) {
                 res.json(dbSexAssault);
@@ -43,5 +43,7 @@ module.exports = function(app) {
             res.json(dbSexAssault);
         });
     });
+
+
 
 };
