@@ -3,7 +3,12 @@
 }
 
 body {
-    background-color: black;
+    background-color: rgb(2, 17, 49);
+    background-image: url("../images/ho.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
 }
 
 
@@ -11,8 +16,8 @@ body {
 
 .jumbotron {
     height: 350px;
-    color: black;
-    background-color: silver;
+    color: rgb(255, 251, 251);
+    background-color: transparent;
 }
 
 .first-column {
