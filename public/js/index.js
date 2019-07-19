@@ -150,7 +150,7 @@ $(document).ready(function() {
     function addMarkerToMap(response) {
         // add markers to the map for the new crime reported
         console.log(response);
-        // location.reload();
+        location.reload();
 
     }
 
