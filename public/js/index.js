@@ -113,27 +113,49 @@ $(document).ready(function() {
 
     function updateMap(response) {
         console.log(response);
+        var map;
+        var geocoder;
+        var markerPopulate;
+        var boroughChoice;
 
         // update the the map so it shows up the markers on the selected borough
         for (let i = 0; i < response.length; i++) {
-            var markerPopulate = response[i].location;
-            var boroughChoice = response[i].borough
+            markerPopulate = response[i].location;
+            boroughChoice = response[i].borough
             console.log("TESTTTTT LOCATION", response[i].location);
-            if (boroughChoice === "Bronx") {
-                function geocodeAddress(resultsMap = map) {
 
-                    geocoder.geocode({
-                        'address': markerPopulate
-                    }, function(results, status) {
-                        if (status === 'OK') {
-                            resultsMap.setCenter(results[0].geometry.location);
-                            var marker = new google.maps.Marker({
-                                map: resultsMap,
-                                position: results[0].geometry.location
-                            });
-                        }
-                    });
-                }
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: {
+                        lat: 40.730610,
+                        lng: -73.935242
+                    }
+                });
+                geocoder = new google.maps.Geocoder();
+
+
+            }
+
+            geocodeAddress(map)
+
+            function geocodeAddress(resultsMap = map) {
+                console.log("HELLO")
+                console.log(markerPopulate)
+                geocoder.geocode({
+                    'address': markerPopulate
+                }, function(results, status) {
+                    console.log(results)
+                    if (status === 'OK') {
+
+                        resultsMap.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: resultsMap,
+                            position: results[0].geometry.location
+                        });
+                    }
+                });
+
             }
         }
 
