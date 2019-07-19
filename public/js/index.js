@@ -256,8 +256,7 @@ $(document).ready(function() {
     $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
 
-        // update the most recent crimes display after user submits a new one
-        getMostRecentSecualAssault();
+
 
         var reportCategory = $("#reportCategory").val();
         var reportLocation = $("#pac-input").val();
@@ -302,6 +301,9 @@ $(document).ready(function() {
 
 
         $("#pac-input").val("");
+
+        // update the most recent crimes display after user submits a new one
+        getMostRecentSecualAssault();
 
     });
 
