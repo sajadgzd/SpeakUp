@@ -11,7 +11,15 @@ body {
     background-position: bottom;
     background-size: cover;
     color: white;
+    /* display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
 }
+
+
+/* main {
+    flex: 1 0 auto;
+} */
 
 h2 {
     margin: 0;
@@ -110,6 +118,17 @@ input {
     color: white;
     border-radius: 10px;
     height: auto;
+}
+
+footer {
+    position: relative;
+    bottom: -200px;
+    background: rgb(2, 17, 49);
+    color: rgb(235, 235, 235);
+    font-size: 12px;
+    padding: 20px 20px;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .ui-slider-horizontal {
