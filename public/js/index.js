@@ -269,7 +269,7 @@ $(document).ready(function() {
             }
             // Make the POST AJAX request to the API.
 
-        $.post("/api/new/" + reportCategory, newCrime, updateAPIandMostRecentCrime);
+        $.post("/api/new/Crime", newCrime, updateAPIandMostRecentCrime);
 
 
         $("#pac-input").val("");
