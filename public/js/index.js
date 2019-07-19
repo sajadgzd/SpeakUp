@@ -299,7 +299,7 @@ $(document).ready(function() {
 
 
     $(document.body).on("click", "#findAllButton", function(event) {
-
+        event.preventDefault();
         var findCategory = $("#findCategory").val();
 
         $.ajax({
