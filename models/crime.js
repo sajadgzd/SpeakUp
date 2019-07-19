@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var SexAssualtCrime = sequelize.define("SexAssualtCrime", {
+    var Crime = sequelize.define("Crime", {
         type: DataTypes.STRING,
         borough: DataTypes.STRING,
         location: DataTypes.STRING,
@@ -9,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
         reported: DataTypes.BOOLEAN,
         description: DataTypes.TEXT,
     });
-    return SexAssualtCrime;
+    return Crime;
 };
