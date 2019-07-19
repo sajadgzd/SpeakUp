@@ -124,6 +124,7 @@ $(document).ready(function() {
             boroughChoice = response[i].borough
             console.log("TESTTTTT LOCATION", response[i].location);
 
+
         }
         addMarkerToMap(response);
 
@@ -131,6 +132,11 @@ $(document).ready(function() {
 
     function addMarkerToMap(response) {
         // add markers to the map for the new crime reported
+
+        console.log(response);
+        location.reload();
+
+
 
 
         var findLocation = $("#findLocation").val();
@@ -209,11 +215,6 @@ $(document).ready(function() {
         });
 
 
-        console.log(response);
-
-
-        // location.reload();
-
     }
 
 
@@ -263,13 +264,12 @@ $(document).ready(function() {
 
 
     });
-
+    $(".invalid").css("display", "none");
 
     $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
 
-        // update the most recent crimes display after user submits a new one
-        getMostRecentSecualAssault();
+
 
         var reportCategory = $("#reportCategory").val();
         var reportLocation = $("#pac-input").val();
@@ -279,6 +279,14 @@ $(document).ready(function() {
         var reportDescription = $("#reportDescription").val();
         var isReported = $("#isReported").is(":checked");
 
+        //  form validation
+
+        if (reportLocation == "") {
+            $(".invalid").css("display", "block");
+            return false;
+        } else if (reportLocation !== "") {
+            $(".invalid").css("display", "none");
+        }
 
         // console.log(reportBorough);
         // console.log(isReported);
@@ -308,11 +316,14 @@ $(document).ready(function() {
 
         $("#pac-input").val("");
 
+        // update the most recent crimes display after user submits a new one
+        getMostRecentSecualAssault();
+
     });
 
 
     $(document.body).on("click", "#findAllButton", function(event) {
-
+        event.preventDefault();
         var findCategory = $("#findCategory").val();
 
         $.ajax({

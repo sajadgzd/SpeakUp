@@ -5,13 +5,21 @@
 body {
     background-color: rgb(2, 17, 49);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/ho.jpg");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom;
     background-size: cover;
     color: white;
+    /* display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
 }
+
+
+/* main {
+    flex: 1 0 auto;
+} */
 
 h2 {
     margin: 0;
@@ -29,6 +37,7 @@ h5 {
     height: 350px;
     color: rgb(255, 251, 251);
     background-color: transparent;
+    padding-top: 0;
 }
 
 .first-column {
@@ -109,6 +118,17 @@ input {
     color: white;
     border-radius: 10px;
     height: auto;
+}
+
+footer {
+    position: relative;
+    bottom: -200px;
+    background: rgb(2, 17, 49);
+    color: rgb(235, 235, 235);
+    font-size: 12px;
+    padding: 20px 20px;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .ui-slider-horizontal {

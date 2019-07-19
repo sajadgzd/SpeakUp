@@ -43,9 +43,9 @@
         <p class="lead">We are aiming to give a voice to the minorities and women to speak up and report crimes which are often not reported.</p>
         <hr class="my-3">
         <!-- <p>This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p> -->
-        <a class="btn btn-secondary btn-md" href="https://github.com/sajadgzd/project-2/blob/master/README.md" role="button" target="_blank">Learn more</a>
-        <a class="btn btn-secondary btn-md" href="#findForm" role="button">View Crimes</a>
-        <a class="btn btn-secondary btn-md" href="#reportForm" role="button">Report Crimes</a>
+        <a class="btn btn-secondary btn-md blue darken-4" href="https://github.com/sajadgzd/project-2/blob/master/README.md" role="button" target="_blank">Learn more</a>
+        <a class="btn btn-secondary btn-md blue darken-4" href="#findForm" role="button">View Crimes</a>
+        <a class="btn btn-secondary btn-md blue darken-4" href="#reportForm" role="button">Report Crimes</a>
     </div>
 
     <div class="modal-body row">
@@ -111,8 +111,8 @@
                         <input type="time" id="findEndTime" name="findEndTime" value="23:59">
                     </div>
 
-                    <input type="submit" id="findButton" class="btn btn-secondary btn-sm"> | <span style="color:red">for
-                        debugging purposes to get all crimes of the type</span> <input type="submit" id="findAllButton" class="btn btn-secondary btn-sm">
+                    <input type="submit" id="findButton" class="btn btn-secondary btn-sm blue darken-4" style="margin-left: 10px;"> | <span style="color:red">for
+                        debugging purposes to get all crimes of the type</span> <input type="submit" id="findAllButton" class="btn btn-secondary btn-sm blue darken-4">
 
 
                 </form>
@@ -149,7 +149,8 @@
                     <!-- TODO: add current location as default value -->
                     <div class="input-field col s12">
                         <div class="locationInput">Location <sup>(required)</sup>
-                            <input id="pac-input" class="controls" type="text" placeholder="Location of Crime">
+                            <input id="pac-input" class="controls" type="text" placeholder="Location of Crime" required>
+                            <div class="invalid" style="width: 290px">Please provide a location</div>
                         </div>
                     </div>
                     <br>
@@ -189,13 +190,13 @@
                     <p>
                         <label for="isReported">
                             <input type="checkbox" id="isReported">
-                            <span>Was the Crime Reported?</span>
+                            <span style="margin-left: 12px;">Was the Crime Reported?</span>
 
                         </label>
                     </p>
 
 
-                    <input type="submit" id="reportButton" class="btn btn-secondary btn-sm">
+                    <input type="submit" id="reportButton" class="btn btn-secondary btn-sm blue darken-4" style="margin-left: 10px;">
                 </form>
             </div>
 
@@ -206,8 +207,32 @@
         </div>
 
 
+
     </div>
 
+
+    <!-- Footer -->
+    <footer class="page-footer" style="background: rgb(2, 17, 49);
+    color: rgb(235, 235, 235); height: auto;">
+        <div class="container">
+            <div class="row">
+                <div class="col l4  s6">
+                    <h6 class="white-text">Developers</h6>
+
+                    <a class="grey-text text-lighten-3" href="https://github.com/sajadgzd" target="_blank">Sajad</a> |
+                    <a class="grey-text text-lighten-3" href="#!" target="_blank">Ryan</a> |
+                    <a class="grey-text text-lighten-3" href="#!" target="_blank">Christian</a>
+                    <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 SPEAK UP
+            </div>
+        </div>
+    </footer>
 
 
 
