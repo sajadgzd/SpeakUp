@@ -1,5 +1,6 @@
 var db = require("../models");
 var moment = require("moment");
+var geocoder = require('google-geocoder');
 // console.log(moment());
 var Sequelize = require("sequelize");
 module.exports = function(app) {
@@ -14,6 +15,16 @@ module.exports = function(app) {
             order: [
                 ['createdAt', 'DESC']
             ]
+        }).then(function(recent) {
+            res.json(recent);
+        });
+    });
+
+    app.get("/api/fromBorough/:borough", function(req, res) {
+        db.SexAssualtCrime.findAll({
+            where: {
+                borough: req.params.borough
+            }
         }).then(function(recent) {
             res.json(recent);
         });
@@ -101,17 +112,45 @@ module.exports = function(app) {
 
     // Create a new sexualAssaultCrime
     app.post("/api/new/sexualAssault", function(req, res) {
-        var object = {
-            borough: req.body.borough,
-            date: parseInt(req.body.date),
-            location: req.body.location,
-            reported: req.body.reported,
-            type: req.body.type,
-            description: req.body.description
-        }
-        db.SexAssualtCrime.create(object).then(function(dbSexAssault) {
-            res.json(dbSexAssault);
+
+
+        var geo = geocoder({
+            key: 'AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U'
         });
+
+        geo.find(req.body.location, function(err, response) {
+            var object = {};
+
+            console.log(response[0].location.lat)
+            console.log(response[0].location.lng)
+
+            object = {
+                borough: req.body.borough,
+                date: parseInt(req.body.date),
+                location: req.body.location,
+                lat: response[0].location.lat,
+                lng: response[0].location.lng,
+                reported: req.body.reported,
+                type: req.body.type,
+                description: req.body.description
+            }
+
+            db.SexAssualtCrime.create(object).then(function(dbSexAssault) {
+
+                res.send(object);
+
+                // if (object.lat && object.lng)
+            });
+
+
+        })
+
+
+
+
+
+
+
     });
 
     // Create a new hateCrime
@@ -128,6 +167,10 @@ module.exports = function(app) {
             res.json(hateCrime);
         });
     });
+
+
+
+
 
 
 
