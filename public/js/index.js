@@ -251,7 +251,7 @@ $(document).ready(function() {
 
 
     });
-
+    $(".invalid").css("display", "none");
 
     $(document.body).on("click", "#reportButton", function(event) {
         event.preventDefault();
@@ -267,6 +267,14 @@ $(document).ready(function() {
         var reportDescription = $("#reportDescription").val();
         var isReported = $("#isReported").is(":checked");
 
+        //  form validation
+
+        if (reportLocation == "") {
+            $(".invalid").css("display", "block");
+            return false;
+        } else if (reportLocation !== "") {
+            $(".invalid").css("display", "none");
+        }
 
         // console.log(reportBorough);
         // console.log(isReported);
