@@ -183,17 +183,38 @@ $(document).ready(function() {
         }).then(function(response) {
 
             console.log(response);
+            var icon = {
+                url: "../images/mapIcons/noun_Hand_164670.png",
+                size: new google.maps.Size(30, 45),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(10, 15),
+                scaledSize: new google.maps.Size(25, 25)
+            }
+
 
             for (var i = 0; i < response.length; i++) {
+                var contentString = "<div class='descriptions'>" + response[i].description + i + "</div>"
+                var infowindow = new google.maps.InfoWindow({
+                    content: `${contentString}`
+                });
+
+                console.log(response[i].description)
 
                 console.log(response[i])
                 var marker = new google.maps.Marker({
                     position: { lat: response[i].lat, lng: response[i].lng },
                     map: map,
-                    title: 'Hello World!'
+                    title: `${contentString}`,
+                    icon: icon
                 });
 
-                console.log(marker)
+
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, this);
+                });
+
+
 
             }
 
