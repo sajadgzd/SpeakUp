@@ -38,46 +38,47 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center" style="height: auto;">
-        <h1 class="display-4">SPEAK UP!</h1>
-        <p class="lead">We are aiming to give a voice to the minorities and women to speak up and report crimes which are often not reported.</p>
-        <hr class="my-3">
-        <!-- <p>This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p> -->
-        <a class="btn btn-secondary btn-md blue darken-4" href="https://github.com/sajadgzd/project-2/blob/master/README.md" role="button" target="_blank">Learn more</a>
-        <a class="btn btn-secondary btn-md blue darken-4" href="#findForm" role="button">View Crimes</a>
-        <a class="btn btn-secondary btn-md blue darken-4" href="#reportForm" role="button">Report Crimes</a>
-    </div>
-
-    <div class="modal-body row">
-        <div id="mapContainer" class="col-md-6">
-            <div id="map"></div>
-            <div id="recentCrime" class="col-md-12">
-                <h1 class="reported">MOST RECENTLY REPORTED CRIMES:</h1>
-                <div id="crimeDisplay" class="col-md-12">
-                </div>
-            </div>
+    <div class="backgroundImage">
+        <div class="jumbotron text-center" style="height: auto;">
+            <h1 class="display-4">SPEAK UP!</h1>
+            <p class="lead">We are aiming to give a voice to the minorities and women to speak up and report crimes which are often not reported.</p>
+            <hr class="my-3">
+            <!-- <p>This application has the true victims of crime in mind, it is designed to give any user the ability to report a crime as well as view potentially dangerous areas.</p> -->
+            <a class="btn btn-secondary btn-md blue darken-4" href="https://github.com/sajadgzd/project-2/blob/master/README.md" role="button" target="_blank">Learn more</a>
+            <a class="btn btn-secondary btn-md blue darken-4" href="#findForm" role="button">View Crimes</a>
+            <a class="btn btn-secondary btn-md blue darken-4" href="#reportForm" role="button">Report Crimes</a>
         </div>
 
+        <div class="modal-body row">
+            <div id="mapContainer" class="col-md-6">
+                <div id="map"></div>
+                <div id="recentCrime" class="col-md-12">
+                    <h1 class="reported">MOST RECENTLY REPORTED CRIMES:</h1>
+                    <div id="crimeDisplay" class="col-md-12">
+                    </div>
+                </div>
+            </div>
 
-        <div id="forms" class="col-md-6">
-            <!-- Form for looking for crimes in a given area/time -->
 
-            <!-- Input for selecting borough to search in -->
-            <div id="findForm">
-                <h5>Find</h5>
-                <form>
-                    <div id="form-group">
-                        <label for="findLocation">Crime Category:</label>
-                        <select class="form-control" id="findCategory">
+            <div id="forms" class="col-md-6">
+                <!-- Form for looking for crimes in a given area/time -->
+
+                <!-- Input for selecting borough to search in -->
+                <div id="findForm">
+                    <h5>Find</h5>
+                    <form>
+                        <div id="form-group">
+                            <label for="findLocation">Crime Category:</label>
+                            <select class="form-control" id="findCategory">
                             <option value="SexualAssault">Sexual Assault</option>
                             <option value="HateCrime">Hate Crime</option>
 
                         </select>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="findLocation">Location:</label>
-                        <select class="form-control" id="findLocation">
+                        <div class="form-group">
+                            <label for="findLocation">Location:</label>
+                            <select class="form-control" id="findLocation">
                             <option value="Bronx">Bronx</option>
                             <option value="Brooklyn">Brooklyn</option>
                             <option value="Manhattan">Manhattan</option>
@@ -85,90 +86,90 @@
                             <option value="StatenIsland">Staten Island</option>
                         </select>
 
-                    </div>
+                        </div>
 
 
 
-                    <!-- Date inputs for finding reports within a given time frame -->
+                        <!-- Date inputs for finding reports within a given time frame -->
 
-                    <div class="input-field col s6">From:
-                        <label for="startDate"></label>
-                        <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01" max="2018-12-31">
-                    </div>
-                    <div class="input-field col s6">To:
-                        <label for="endDate"></label>
-                        <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                        <div class="input-field col s6">From:
+                            <label for="startDate"></label>
+                            <input type="date" id="startDate" name="search-start" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                        </div>
+                        <div class="input-field col s6">To:
+                            <label for="endDate"></label>
+                            <input type="date" id="endDate" name="search-end" value="2018-07-22" min="2015-01-01" max="2018-12-31">
 
-                        <br>
-                    </div>
-                    <!-- Time inputs with two 24 hour times. default range is set to all day -->
-                    <div class="input-field col s6">Start time
-                        <label for="findStartTime"></label>
-                        <input type="time" id="findStartTime" name="findStartTime" value="00:01">
-                    </div>
-                    <div class="input-field col s6">End time
-                        <label for="findEndTime"></label>
-                        <input type="time" id="findEndTime" name="findEndTime" value="23:59">
-                    </div>
+                            <br>
+                        </div>
+                        <!-- Time inputs with two 24 hour times. default range is set to all day -->
+                        <div class="input-field col s6">Start time
+                            <label for="findStartTime"></label>
+                            <input type="time" id="findStartTime" name="findStartTime" value="00:01">
+                        </div>
+                        <div class="input-field col s6">End time
+                            <label for="findEndTime"></label>
+                            <input type="time" id="findEndTime" name="findEndTime" value="23:59">
+                        </div>
 
-                    <input type="submit" id="findButton" class="btn btn-secondary btn-sm blue darken-4" style="margin-left: 10px;"> | <span style="color:red">for
+                        <input type="submit" id="findButton" class="btn btn-secondary btn-sm blue darken-4" style="margin-left: 10px;"> | <span style="color:red">for
                         debugging purposes to get all crimes of the type</span> <input type="submit" id="findAllButton" class="btn btn-secondary btn-sm blue darken-4">
 
 
-                </form>
+                    </form>
 
 
 
-            </div>
-            <br>
-            <hr style="color: white">
-            <!-- Form for submitting a report -->
-            <div id="reportForm">
-                <h5>Report</h5>
-                <form>
-                    <!-- input for report Category -->
-                    <div class="form-group">
-                        <label for="reportCategory">Crime Category:</label>
-                        <select class="form-control" id="reportCategory">
+                </div>
+                <br>
+                <hr style="color: white">
+                <!-- Form for submitting a report -->
+                <div id="reportForm">
+                    <h5>Report</h5>
+                    <form>
+                        <!-- input for report Category -->
+                        <div class="form-group">
+                            <label for="reportCategory">Crime Category:</label>
+                            <select class="form-control" id="reportCategory">
                             <option value="SexualAssault">Sexual Assault</option>
                             <option value="HateCrime">Hate Crime</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="reportLocation">Borough:</label>
-                        <select class="form-control" id="reportLocation">
+                        </div>
+                        <div class="form-group">
+                            <label for="reportLocation">Borough:</label>
+                            <select class="form-control" id="reportLocation">
                             <option value="Bronx">Bronx</option>
                             <option value="Brooklyn">Brooklyn</option>
                             <option value="Manhattan">Manhattan</option>
                             <option value="Queens">Queens</option>
                             <option value="StatenIsland">Staten Island</option>
                         </select>
-                    </div>
-
-                    <!-- location input using Google Maps search bar -->
-                    <!-- TODO: add current location as default value -->
-                    <div class="input-field col s12">
-                        <div class="locationInput">Location <sup>(required)</sup>
-                            <input id="pac-input" class="controls" type="text" placeholder="Location of Crime" required>
-                            <div class="invalid" style="width: 290px">Please provide a location</div>
                         </div>
-                    </div>
-                    <br>
 
-                    <!-- specific date to report crime -->
-                    <div class="input-field col s6">
-                        Date: <input type="date" id="reportDate" name="reportDate" value="2018-07-22" min="2015-01-01" max="2018-12-31">
-                    </div>
-                    <br>
+                        <!-- location input using Google Maps search bar -->
+                        <!-- TODO: add current location as default value -->
+                        <div class="input-field col s12">
+                            <div class="locationInput">Location <sup>(required)</sup>
+                                <input id="pac-input" class="controls" type="text" placeholder="Location of Crime" required>
+                                <div class="invalid" style="width: 290px">Please provide a location</div>
+                            </div>
+                        </div>
+                        <br>
 
-                    <!-- Specific time to give to reported crime -->
-                    <div class="input-field col s6"> Time of Incident:
-                        <label for="reportTime"></label>
-                        <input type="time" id="reportTime" name="reportTime" value="00:00">
-                    </div>
+                        <!-- specific date to report crime -->
+                        <div class="input-field col s6">
+                            Date: <input type="date" id="reportDate" name="reportDate" value="2018-07-22" min="2015-01-01" max="2018-12-31">
+                        </div>
+                        <br>
 
-                    <!-- optional description area -->
-                    <!-- <div class="form-group col s12">
+                        <!-- Specific time to give to reported crime -->
+                        <div class="input-field col s6"> Time of Incident:
+                            <label for="reportTime"></label>
+                            <input type="time" id="reportTime" name="reportTime" value="00:00">
+                        </div>
+
+                        <!-- optional description area -->
+                        <!-- <div class="form-group col s12">
                         <div class="input-field ">
                             <label for="reportDescription">Description:</label>
                             <textarea class="form-control" id="reportDescription" rows="3"></textarea>
@@ -176,40 +177,41 @@
                     </div> -->
 
 
-                    <form class="col s12">
-                        <div class="input-field col s12">
+                        <form class="col s12">
+                            <div class="input-field col s12">
 
-                            <textarea id="reportDescription" class="materialize-textarea" style="color: white;"></textarea>
-                            <label for="textarea1">Description (optional)</label>
+                                <textarea id="reportDescription" class="materialize-textarea" style="color: white;"></textarea>
+                                <label for="textarea1">Description (optional)</label>
 
-                        </div>
-                    </form>
+                            </div>
+                        </form>
 
 
-                    <!-- Default checked -->
-                    <p>
-                        <label for="isReported">
+                        <!-- Default checked -->
+                        <p>
+                            <label for="isReported">
                             <input type="checkbox" id="isReported">
                             <span style="margin-left: 12px;">Was the Crime Reported?</span>
 
                         </label>
-                    </p>
+                        </p>
 
 
-                    <input type="submit" id="reportButton" class="btn btn-secondary btn-sm blue darken-4" style="margin-left: 10px;">
-                </form>
+                        <input type="submit" id="reportButton" class="btn btn-secondary btn-sm blue darken-4" style="margin-left: 10px;">
+                    </form>
+                </div>
+
+
+
+
+
             </div>
-
-
 
 
 
         </div>
 
-
-
     </div>
-
 
     <!-- Footer -->
     <footer class="page-footer" style="background: rgb(2, 17, 49);
@@ -219,9 +221,9 @@
                 <div class="col l4  s6">
                     <h6 class="white-text">Developers</h6>
 
-                    <a class="grey-text text-lighten-3" href="https://github.com/sajadgzd" target="_blank">Sajad</a> |
-                    <a class="grey-text text-lighten-3" href="https://github.com/rdoty1" target="_blank">Ryan</a> |
-                    <a class="grey-text text-lighten-3" href="https://github.com/Cristo12345" target="_blank">Christian</a>
+                    <a class="grey-text text-lighten-3" href="https://github.com/sajadgzd" target="_blank">Sajad Gholamzadehrizi</a> |
+                    <a class="grey-text text-lighten-3" href="https://github.com/rdoty1" target="_blank">Ryan Doty</a> |
+                    <a class="grey-text text-lighten-3" href="https://github.com/Cristo12345" target="_blank">Christian Suleiman</a>
                     <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
 
                 </div>
