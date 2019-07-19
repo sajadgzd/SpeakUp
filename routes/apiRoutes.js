@@ -130,33 +130,48 @@ module.exports = function(app) {
 
                 res.send(object);
 
-                // if (object.lat && object.lng)
             });
 
 
-        })
-
-
-
-
-
+        });
 
 
     });
 
     // Create a new hateCrime
     app.post("/api/new/hateCrime", function(req, res) {
-        var object = {
-            borough: req.body.borough,
-            date: parseInt(req.body.date),
-            location: req.body.location,
-            reported: req.body.reported,
-            type: req.body.type,
-            description: req.body.description
-        }
-        db.hateCrime.create(object).then(function(hateCrime) {
-            res.json(hateCrime);
+
+
+        var geo = geocoder({
+            key: 'AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U'
         });
+
+        geo.find(req.body.location, function(err, response) {
+            var object = {};
+
+            console.log(response[0].location.lat)
+            console.log(response[0].location.lng)
+
+            object = {
+                borough: req.body.borough,
+                date: parseInt(req.body.date),
+                location: req.body.location,
+                lat: response[0].location.lat,
+                lng: response[0].location.lng,
+                reported: req.body.reported,
+                type: req.body.type,
+                description: req.body.description
+            }
+
+
+            db.hateCrime.create(object).then(function(hateCrime) {
+
+                res.json(hateCrime);
+
+            });
+
+        })
+
     });
 
 
