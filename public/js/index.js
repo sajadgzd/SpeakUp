@@ -69,7 +69,6 @@ function getMostRecentCrime() {
             $("#crimeDisplay").append("<span style='font-weight: bold'> Reported Date: </span> <span>" + convertedMostRecentDate + "</span><br><hr><br>");
         };
         console.log(response);
-        // getMostRecentHateCrime();
     });
 };
 

@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
 
 
-    // Get all examples
+    // Get request for findButton
     app.get("/api/:findCategory/:findLocation/:startDate/:endDate/:findStartTime/:findEndTime",
         function(req, res) {
 
@@ -33,39 +33,56 @@ module.exports = function(app) {
                 start: StartconvertedDate,
                 end: EndconvertedDate
             }
-
-            db.Crime.findAll({
-                where: {
-                    type: req.params.findCategory,
-                    borough: req.params.findLocation,
-
-                    date: {
-                        [Sequelize.Op.lte]: EndconvertedDate,
-                        [Sequelize.Op.gte]: StartconvertedDate
+            if (req.params.findCategory === "All") {
+                db.Crime.findAll({
+                    where: {
+                        borough: req.params.findLocation,
+                        date: {
+                            [Sequelize.Op.lte]: EndconvertedDate,
+                            [Sequelize.Op.gte]: StartconvertedDate
+                        }
                     }
+                }).then(function(dbCrime) {
+                    res.json(dbCrime);
+                });
+            } else {
+                db.Crime.findAll({
+                    where: {
+                        type: req.params.findCategory,
+                        borough: req.params.findLocation,
 
-                }
-            }).then(function(dbCrime) {
-                // console.log(obj);
-                res.json(dbCrime);
-            });
+                        date: {
+                            [Sequelize.Op.lte]: EndconvertedDate,
+                            [Sequelize.Op.gte]: StartconvertedDate
+                        }
 
+                    }
+                }).then(function(dbCrime) {
+                    // console.log(obj);
+                    res.json(dbCrime);
+                });
+            }
         });
 
 
     // Get all crimes of selected category
     app.get("/api/:findCategory",
         function(req, res) {
-
-            db.Crime.findAll({
-                where: {
-                    type: req.params.findCategory
-                }
-            }).then(function(dbCrime) {
-                res.json(dbCrime);
-            });
-
+            if (req.params.findCategory === "All") {
+                db.Crime.findAll({}).then(function(dbCrime) {
+                    res.json(dbCrime);
+                });
+            } else {
+                db.Crime.findAll({
+                    where: {
+                        type: req.params.findCategory
+                    }
+                }).then(function(dbCrime) {
+                    res.json(dbCrime);
+                });
+            }
         });
+
 
     // Create a new CrimeCrime
     app.post("/api/new/Crime", function(req, res) {
