@@ -20,15 +20,6 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/fromBorough/:borough", function(req, res) {
-        db.SexAssualtCrime.findAll({
-            where: {
-                borough: req.params.borough
-            }
-        }).then(function(recent) {
-            res.json(recent);
-        });
-    });
 
     app.get("/api/mostRecentHateCrime", function(req, res) {
         db.hateCrime.findAll({

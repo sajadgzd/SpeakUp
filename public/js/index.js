@@ -118,28 +118,13 @@ $(document).ready(function() {
         var markerPopulate;
         var boroughChoice;
 
-        // update the the map so it shows up the markers on the selected borough
-        for (let i = 0; i < response.length; i++) {
-            markerPopulate = response[i].location;
-            boroughChoice = response[i].borough
-            console.log("TESTTTTT LOCATION", response[i].location);
-
-
-        }
-        addMarkerToMap(response);
-
-    }
-
-    function addMarkerToMap(response) {
-        // add markers to the map for the new crime reported
-
-        console.log(response);
-        location.reload();
-
-
-
 
         var findLocation = $("#findLocation").val();
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+        var findStartTime = $("#findStartTime").val();
+        var findEndTime = $("#findEndTime").val();
+        var findCategory = $("#findCategory").val();
 
         if (findLocation === "Brooklyn") {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -192,8 +177,9 @@ $(document).ready(function() {
 
         }
         $.ajax({
-            url: `/api/fromBorough/${findLocation}`,
-            method: "GET"
+            url: "/api/" + findCategory + "/" + findLocation + "/" + startDate +
+                "/" + endDate + "/" + findStartTime + "/" + findEndTime,
+            method: "GET",
         }).then(function(response) {
 
             console.log(response);
@@ -214,6 +200,14 @@ $(document).ready(function() {
 
         });
 
+
+    }
+
+    function updateAPIandMostRecentCrime(response) {
+        // add markers to the map for the new crime reported
+
+        console.log(response);
+        location.reload();
 
     }
 
@@ -246,24 +240,13 @@ $(document).ready(function() {
             method: "GET",
 
         }).then(updateMap);
-        // console.log(startDate);
-        // console.log(endDate);
-        // console.log(findStartTime)
-        // console.log(findEndTime)
-
-        // $.ajax({
-        //     url: "/api/borough",
-        //     method: "GET",
-
-        // }).then(function(dbSexAssault) {
-        //     console.log(dbSexAssault)
-        // });
-
 
 
 
 
     });
+
+    // form validation message is hidden
     $(".invalid").css("display", "none");
 
     $(document.body).on("click", "#reportButton", function(event) {
@@ -288,13 +271,6 @@ $(document).ready(function() {
             $(".invalid").css("display", "none");
         }
 
-        // console.log(reportBorough);
-        // console.log(isReported);
-        // console.log(reportDescription);
-        // console.log(reportTime);
-        // console.log(reportDate);
-        // console.log(reportLocation);
-        // console.log(reportCategory);
         var convertedDate = moment(reportDate + " " + reportTime).format("X");
         convertedDate = parseInt(convertedDate);
         console.log(convertedDate);
@@ -311,7 +287,7 @@ $(document).ready(function() {
             }
             // Make the POST AJAX request to the API.
 
-        $.post("/api/new/" + reportCategory, newCrime, addMarkerToMap);
+        $.post("/api/new/" + reportCategory, newCrime, updateAPIandMostRecentCrime);
 
 
         $("#pac-input").val("");
