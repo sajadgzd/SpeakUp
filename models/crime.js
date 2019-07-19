@@ -3,6 +3,8 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         borough: DataTypes.STRING,
         location: DataTypes.STRING,
+        lat: DataTypes.FLOAT,
+        lng: DataTypes.FLOAT,
         date: DataTypes.INTEGER,
         reported: DataTypes.BOOLEAN,
         description: DataTypes.TEXT,

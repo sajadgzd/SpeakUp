@@ -250,7 +250,10 @@
                 // Clear out the old markers.
                 markers.forEach(function(marker) {
                     marker.setMap(null);
+
                 });
+
+                console.log("HELLO")
                 markers = [];
                 // For each place, get the icon, name and location.
                 var bounds = new google.maps.LatLngBounds();
@@ -281,10 +284,15 @@
                     }
                 });
                 map.fitBounds(bounds);
+
+
             });
+
+
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOghrohWNA37hFNGoey7gZSLHzicCD55U&libraries=places&callback=initAutocomplete" async defer></script>
+
 
     <script type="text/javascript" src="./js/index.js"></script>
 
