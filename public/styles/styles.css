@@ -29,6 +29,7 @@ h5 {
     height: 350px;
     color: rgb(255, 251, 251);
     background-color: transparent;
+    padding-top: 0;
 }
 
 .first-column {
