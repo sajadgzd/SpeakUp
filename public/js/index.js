@@ -163,10 +163,7 @@ $(document).ready(function() {
 
 
             for (var i = 0; i < response.length; i++) {
-                var contentString = "<div class='descriptions'>" + response[i].description + i + "</div>"
-                var infowindow = new google.maps.InfoWindow({
-                    content: `${contentString}`
-                });
+
 
                 console.log(response[i].description)
 
@@ -174,15 +171,20 @@ $(document).ready(function() {
                 var marker = new google.maps.Marker({
                     position: { lat: response[i].lat, lng: response[i].lng },
                     map: map,
-                    title: `${contentString}`,
+                    title: `${response[i].description}`,
                     icon: icon
                 });
 
+                var content = "<div class='descriptions'>" + "<h10> Description of evident: </h10>" + response[i].description + "</div>"
 
+                var infowindow = new google.maps.InfoWindow()
 
-                marker.addListener('click', function() {
-                    infowindow.open(map, this);
-                });
+                google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+                    return function() {
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+                    };
+                })(marker, content, infowindow));
 
 
 
