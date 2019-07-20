@@ -174,8 +174,20 @@ $(document).ready(function() {
                     title: `${response[i].description}`,
                     icon: icon
                 });
+                if (!response[i].description) {
+                    response[i].description = "No description provided by the reporter";
+                }
+                if (response[i].reported) {
+                    response[i].reported = "Yes"
+                } else {
+                    response[i].reported = "No"
+                }
+                var content = "<div class='descriptions' style='font-size:15px;'>" + "<p> <span style='font-weight: bold;'> Type: </span>" + response[i].type +
+                    "</p> <p> <span style='font-weight: bold;'> Description of evident: </span>" + response[i].description +
+                    "</p> <p> <span style='font-weight: bold;'> Location: </span>" + response[i].location + "</p>" +
+                    "</p> <p> <span style='font-weight: bold;'> Reported to the Police? </span>" + response[i].reported + "</p>" +
+                    "</div>"
 
-                var content = "<div class='descriptions'>" + "<h10> Description of evident: </h10>" + response[i].description + "</div>"
 
                 var infowindow = new google.maps.InfoWindow()
 
