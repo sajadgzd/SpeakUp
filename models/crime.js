@@ -9,5 +9,17 @@ module.exports = function(sequelize, DataTypes) {
         reported: DataTypes.BOOLEAN,
         description: DataTypes.TEXT,
     });
+
+    Crime.associate = function(models) {
+        // We're saying that a Crime should belong to a User
+        // A Crime can be created without a User, we allow anonymous crime reporting
+        Crime.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: true
+            }
+        });
+    };
+
+
     return Crime;
 };
