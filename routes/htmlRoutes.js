@@ -4,9 +4,9 @@ var db = require("../models");
 module.exports = function(app) {
 
     app.get('/registerPage', (req, res) => res.render('home', { user: req.user }));
-    // app.get('/loginPage', (req, res) => res.render('home', { user: req.user }));
+    app.get('/loginPage', (req, res) => res.render('home', { user: req.user }));
 
-    app.get('/register', (req, res) => res.render('home', { user: req.user }));
+    // app.get('/register', (req, res) => res.render('home', { user: req.user }));
 
 
     // Load index page

@@ -1,6 +1,7 @@
 $(function() {
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === '/loginPage') {
         $('.signup-form').remove()
+        $('.register').remove()
         $('.login').on('click', login);
     }
 
