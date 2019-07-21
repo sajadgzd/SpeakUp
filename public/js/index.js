@@ -6,24 +6,24 @@ var latitude;
 var longitude;
 
 
-function ipLookUp() {
-    $.ajax('http://ip-api.com/json')
-        .then(
-            function success(response) {
-                // console.log(response);
-                console.log('Latitude ', response.lat);
-                latitude = response.lat;
-                console.log('Longitude ', response.lon);
-                longitude = response.lon;
-            },
+// function ipLookUp() {
+//     $.ajax('http://ip-api.com/json')
+//         .then(
+//             function success(response) {
+//                 // console.log(response);
+//                 console.log('Latitude ', response.lat);
+//                 latitude = response.lat;
+//                 console.log('Longitude ', response.lon);
+//                 longitude = response.lon;
+//             },
 
-            function fail(data, status) {
-                console.log('Request failed.  Returned status of',
-                    status);
-            }
-        );
-}
-ipLookUp();
+//             function fail(data, status) {
+//                 console.log('Request failed.  Returned status of',
+//                     status);
+//             }
+//         );
+// }
+// ipLookUp();
 // if ("geolocation" in navigator) {
 //     // check if geolocation is supported/enabled on current browser
 //     navigator.geolocation.getCurrentPosition(
