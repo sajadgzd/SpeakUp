@@ -20,6 +20,16 @@ module.exports = (sequelize, DataTypes) => {
 
     // set up the associations so we can make queries that include
     // the related objects
+    User.associate = function(models) {
+        // Associating User with Crimes
+        // When an User is deleted, also delete any associated Crimes
+        User.hasMany(models.Crime, {
+            onDelete: "cascade"
+        });
+    };
+
+    // set up the associations so we can make queries that include
+    // the related objects
     User.associate = function({ AuthToken }) {
         User.hasMany(AuthToken);
     };

@@ -19,11 +19,11 @@ module.exports = function(app) {
 
 
     app.get("/loggedInHome", function(req, res) {
-        db.Crime.findAll({}).then(function(dbCrime) {
-            // res.sendFile("../public/index.html");
-            // res.sendFile(__dirname + '../public/index.html');
-            res.sendFile('index.html', { root: "public" });
-        });
+        // db.Crime.findAll({}).then(function(dbCrime) {
+        // res.sendFile("../public/index.html");
+        // res.sendFile(__dirname + '../public/index.html');
+        res.sendFile('index.html', { root: "public" });
+        // });
     });
 
 

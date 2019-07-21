@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS sexAssaultdb;
-CREATE DATABASE sexAssaultdb;
+DROP DATABASE IF EXISTS crimedb;
+CREATE DATABASE crimedb;
 
--- INSERT INTO SexAssualtCrime (column1, column2, column3, ...)
--- VALUES (value1, value2, value3, ...);
 
--- USE sexAssaultdb;
--- SELECT * FROM SexAssualtCrimes;
+
+-- USE crimedb;
+-- SELECT * FROM Users;
+-- SELECT * FROM Crimes;
