@@ -18,7 +18,7 @@ According to National Crime Victimization Survey 2010-2016, the Majority of Sexu
 
 <a name="overview"></a>
 ## Overview 
-A Node based app which primarily aims to give a voice to the minorities and women to speak up and report crimes such as sexual assault which are often not reported. 
+A Node based app which primarily aims to give a voice to the minorities and women to speak up and report crimes such as sexual assault which often go unreported. 
 
 <a name="technologies"></a>
 ## Technologies
