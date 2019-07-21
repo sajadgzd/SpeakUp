@@ -34,6 +34,7 @@ A Node based app which primarily aims to give a voice to the minorities and wome
  * jQuery
  * Moment.js
  * HTML
+ * Handlebars
  * CSS
  * Bootstrap
  * Materialize
