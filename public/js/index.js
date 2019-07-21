@@ -153,6 +153,18 @@ $(document).ready(function() {
         }).then(function(response) {
 
             console.log(response);
+
+            // var icons = {
+            //     sexualAssault: {
+            //         icon: "../images/mapIcons/noun_Hand_164670.png"
+            //     },
+            //     rape: {
+            //         icon: '../images/mapIcons/sccpre.cat-city-icon-png-4934242.png'
+            //     }
+
+            // };
+
+
             var icon = {
                 url: "../images/mapIcons/noun_Hand_164670.png",
                 size: new google.maps.Size(30, 45),
@@ -166,6 +178,7 @@ $(document).ready(function() {
 
 
                 console.log(response[i].description)
+                console.log(response[i].type)
 
                 console.log(response[i])
                 var marker = new google.maps.Marker({
@@ -239,7 +252,7 @@ $(document).ready(function() {
             method: "GET",
 
         }).then(updateMap);
-
+        console.log(findCategory)
 
 
 

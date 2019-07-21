@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS sexAssaultdb;
-CREATE DATABASE sexAssaultdb;
+DROP DATABASE IF EXISTS portfoliodb;
+CREATE DATABASE portfoliodb;
 
 -- INSERT INTO SexAssualtCrime (column1, column2, column3, ...)
 -- VALUES (value1, value2, value3, ...);
