@@ -2,17 +2,27 @@ $(function() {
     if (window.location.pathname === '/loginPage') {
         $('.signup-form').remove()
         $('.register').remove()
+        $('.loggedIn-form').remove()
         $('.login').on('click', login);
     }
 
     if (window.location.pathname === '/registerPage') {
         $('.login-form').remove()
+        $('.loggedIn-form').remove()
         $('.signup').on('click', signup);
     }
 
-    if ($('.logout').length) {
-        $('.logout').on('click', logout);
+    if (window.location.pathname === '/loggedIn') {
+        $('.login-form').remove()
+        $('.signup-form').remove()
+        $('.info').remove()
+            // $("#signUpButton").remove();
+
     }
+
+
+
+
 })
 
 function validInput(names) {
@@ -36,7 +46,7 @@ function login(e) {
     }).then(({ user, authToken }) => {
         $.cookie('auth_token', authToken.token, { expires: 7 });
         if (!user) throw new Error('invalid username or password');
-        window.location.reload()
+        window.location = "/loggedIn"
     }).catch((err) => alert(err.responseText))
 }
 
@@ -53,20 +63,9 @@ function signup(e) {
     }).then(({ user, authToken }) => {
         if (user && authToken.token) {
             $.cookie('auth_token', authToken.token, { expires: 7 });
-            window.location = '/'
+            window.location = '/loggedIn'
         } else {
             throw new Error('something went wrong')
         }
     }).catch((err) => alert(err.responseText))
-}
-
-function logout(e) {
-    e.preventDefault();
-    $.ajax('/logout', {
-        method: 'DELETE',
-        data: {}
-    }).then(user => {
-        $.removeCookie('auth_token');
-        window.location.reload()
-    })
 }

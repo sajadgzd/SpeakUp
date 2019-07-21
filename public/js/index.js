@@ -79,7 +79,10 @@ $(document).ready(function() {
     // calling global function to get most recent crimes when page loads
     getMostRecentCrime();
 
+    if (window.location.pathname === '/loggedInHome') {
+        $("#signUpButton").hide();
 
+    }
 
     function updateMap(response) {
         console.log(response);
