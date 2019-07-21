@@ -129,7 +129,7 @@ module.exports = function(app) {
 
     /* Register Route
     ========================================================= */
-    app.post('/register', async(req, res) => {
+    app.post('/registerPage', async(req, res) => {
 
         // hash the password provided by the user with bcrypt so that
         // we are never storing plain text passwords. This is crucial

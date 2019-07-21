@@ -23,13 +23,14 @@ app.use(cookieParser());
 app.use(customAuthMiddleware);
 
 // Handlebars
-app.engine(
-    "handlebars",
-    exphbs({
-        defaultLayout: "main"
-    })
-);
-app.set("view engine", "handlebars");
+// set up handlebars
+app.set('views', path.join(__dirname, '/views'));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    extname: '.handlebars',
+    layoutsDir: 'views/layouts'
+}));
+app.set('view engine', 'handlebars');
 
 // Routes
 require("./routes/apiRoutes")(app);

@@ -2,6 +2,12 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
+    // app.get('/', (req, res) => res.render('home', { user: req.user }));
+
+    app.get('/registerPage', (req, res) => res.render('home', { user: req.user }));
+
+
     // Load index page
     app.get("/", function(req, res) {
         db.Crime.findAll({}).then(function(dbCrime) {
