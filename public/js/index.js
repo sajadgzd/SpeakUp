@@ -10,7 +10,7 @@ function ipLookUp() {
     $.ajax('http://ip-api.com/json')
         .then(
             function success(response) {
-                console.log(response);
+                // console.log(response);
                 console.log('Latitude ', response.lat);
                 latitude = response.lat;
                 console.log('Longitude ', response.lon);
