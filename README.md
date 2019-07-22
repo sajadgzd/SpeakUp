@@ -43,11 +43,11 @@ A Node based app which primarily aims to give a voice to the minorities and wome
 ## Local Installation
 ### Step 1: Git Clone
 Clone Burger-Sequelize to your local git repo like the following:
-> git clone git@github.com:sajadgzd/project-2.git
+> git clone git@github.com:sajadgzd/SpeakUp.git
 
 or
 
-> git clone https://github.com/sajadgzd/project-2.git
+> git clone https://github.com/sajadgzd/SpeakUp.git
 
 The Speak Up project and its files should now be in your project folder.
 
@@ -85,4 +85,4 @@ To visit deployed application, [click here](https://project-2-70181.herokuapp.co
 ### Gif Demo
 ![Demo](/public/images/demo1.gif)
 ### Live Demo
-[Click Here](https://project-2-70181.herokuapp.com/)
+[Click Here](https://speak-up-70181.herokuapp.com/)
