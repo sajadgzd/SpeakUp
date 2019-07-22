@@ -85,4 +85,4 @@ To visit deployed application, [click here](https://project-2-70181.herokuapp.co
 ### Gif Demo
 ![Demo](/public/images/demo1.gif)
 ### Live Demo
-[Click Here](https://project-2-70181.herokuapp.com/)
+[Click Here](https://speak-up-70181.herokuapp.com/)
