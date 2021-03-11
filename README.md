@@ -7,6 +7,7 @@
 3. [Local Installation](#installation)
 4. [App Display](#display)
 
+
 <a name="preview"></a>
 ## Preview 
 The majority of crimes committed in the United States are never reported to the police. Worse still, the crimes that are reported are usually never solved. In 2016 a miserable 42 percent of violent crime and an even more miserable 36 percent of property crime was reported to US authorities.
